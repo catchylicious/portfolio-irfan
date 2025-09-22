@@ -1063,7 +1063,147 @@
         }
 
         // Language Functions
+        let currentLanguage = 'id';
+        
+        const translations = {
+            id: {
+                // Navigation
+                home: 'Home',
+                services: 'Layanan',
+                gallery: 'Gallery',
+                contact: 'Kontak',
+                menu: 'Menu',
+                
+                // Hero Section
+                heroTitle: 'Hai Aku Irfan 👋',
+                heroDescription: '8 Tahun di dunia Marketing, dan sekarang mau bantu kamu untuk perbagus Website • Design • Ads Marketing yang menghasilkan konversi tinggi untuk bisnis Anda',
+                heroButton: 'Mulai Konsultasi Gratis',
+                
+                // Services
+                servicesTitle: 'Layanan Kami',
+                websiteTitle: 'Website Development',
+                websiteDesc: 'Website responsif, cepat, dan SEO-friendly',
+                designTitle: 'Design Postingan Social Media',
+                designDesc: 'Design menarik dan profesional, 100% bukan template',
+                adsTitle: 'Ads Marketing',
+                adsDesc: 'Kampanye iklan tepat sasaran untuk penjualan tinggi',
+                askPrice: 'Tanya Untuk Harga',
+                detailBtn: 'Detail',
+                
+                // Website Examples
+                examplesTitle: 'Contoh Website',
+                automotiveTitle: 'Web Otomotif',
+                automotiveDesc: 'Showroom & Dealer Mobil',
+                propertyTitle: 'Web Property',
+                propertyDesc: 'Real Estate & Properti',
+                livePreview: 'Live Preview',
+                viewDemo: 'Lihat Demo',
+                
+                // Gallery
+                galleryTitle: 'Gallery',
+                loadMore: '📸 Lihat Lebih Banyak',
+                hideImages: '📸 Sembunyikan Gambar',
+                loading: '⏳ Memuat...',
+                hiding: '⏳ Menyembunyikan...',
+                
+                // Stats
+                statsTitle: 'Pencapaian Kami',
+                projectsCompleted: 'Proyek Selesai',
+                clientSatisfaction: 'Kepuasan Klien',
+                support: 'Support',
+                startProject: '🚀 Mulai Proyek Baru',
+                
+                // Testimonials
+                testimonialsTitle: 'Kata Klien',
+                
+                // Contact
+                contactTitle: 'Siap Memulai Proyek?',
+                contactDesc: 'Konsultasi gratis untuk menentukan solusi terbaik bagi bisnis Anda',
+                chatWhatsapp: 'Chat WhatsApp',
+                emailConsult: '📧 Email Konsultasi',
+                
+                // Chat Widget
+                consultWith: 'Konsultasi dengan Irfan',
+                onlineNow: 'Online sekarang',
+                websiteConsult: 'Konsultasi pembuatan website',
+                designConsult: 'Konsultasi design postingan',
+                adsConsult: 'Konsultasi strategi iklan',
+                generalConsult: 'Chat langsung dengan Irfan',
+                freeConsult: 'Konsultasi Gratis',
+                requestQuote: '📧 Minta Penawaran'
+            },
+            en: {
+                // Navigation
+                home: 'Home',
+                services: 'Services',
+                gallery: 'Gallery',
+                contact: 'Contact',
+                menu: 'Menu',
+                
+                // Hero Section
+                heroTitle: 'Hi, I\'m Irfan 👋',
+                heroDescription: '8 Years in Marketing, and now I want to help you improve Website • Design • Ads Marketing that generates high conversions for your business',
+                heroButton: 'Start Free Consultation',
+                
+                // Services
+                servicesTitle: 'Our Services',
+                websiteTitle: 'Website Development',
+                websiteDesc: 'Responsive, fast, and SEO-friendly websites',
+                designTitle: 'Social Media Design',
+                designDesc: 'Attractive and professional design, 100% not template',
+                adsTitle: 'Ads Marketing',
+                adsDesc: 'Targeted advertising campaigns for high sales',
+                askPrice: 'Ask For Price',
+                detailBtn: 'Detail',
+                
+                // Website Examples
+                examplesTitle: 'Website Examples',
+                automotiveTitle: 'Automotive Web',
+                automotiveDesc: 'Showroom & Car Dealer',
+                propertyTitle: 'Property Web',
+                propertyDesc: 'Real Estate & Property',
+                livePreview: 'Live Preview',
+                viewDemo: 'View Demo',
+                
+                // Gallery
+                galleryTitle: 'Gallery',
+                loadMore: '📸 Load More',
+                hideImages: '📸 Hide Images',
+                loading: '⏳ Loading...',
+                hiding: '⏳ Hiding...',
+                
+                // Stats
+                statsTitle: 'Our Achievements',
+                projectsCompleted: 'Projects Completed',
+                clientSatisfaction: 'Client Satisfaction',
+                support: 'Support',
+                startProject: '🚀 Start New Project',
+                
+                // Testimonials
+                testimonialsTitle: 'Client Reviews',
+                
+                // Contact
+                contactTitle: 'Ready to Start Project?',
+                contactDesc: 'Free consultation to determine the best solution for your business',
+                chatWhatsapp: 'Chat WhatsApp',
+                emailConsult: '📧 Email Consultation',
+                
+                // Chat Widget
+                consultWith: 'Consult with Irfan',
+                onlineNow: 'Online now',
+                websiteConsult: 'Website development consultation',
+                designConsult: 'Design consultation',
+                adsConsult: 'Advertising strategy consultation',
+                generalConsult: 'Chat directly with Irfan',
+                freeConsult: 'Free Consultation',
+                requestQuote: '📧 Request Quote'
+            }
+        };
+        
         function switchLang(lang) {
+            currentLanguage = lang;
+            
+            // Update button styles
             const langButtons = document.querySelectorAll('.lang-btn');
             langButtons.forEach(btn => {
                 btn.classList.remove('bg-white', 'text-gray-800', 'shadow-sm');
@@ -1077,16 +1217,206 @@
                 document.querySelector('[onclick="switchLang(\'en\')"]').classList.add('bg-white', 'text-gray-800', 'shadow-sm');
                 document.querySelector('[onclick="switchLang(\'en\')"]').classList.remove('text-gray-600');
             }
+            
+            // Update content
+            updateContent(lang);
+        }
+        
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            // Update navigation menu
+            document.querySelectorAll('.menu-link span').forEach((span, index) => {
+                const keys = ['home', 'services', 'gallery', 'contact'];
+                if (keys[index]) {
+                    span.textContent = t[keys[index]];
+                }
+            });
+            
+            // Update bottom navigation
+            document.querySelectorAll('.nav-item span').forEach((span, index) => {
+                const keys = ['home', 'services', 'gallery', 'contact'];
+                if (keys[index]) {
+                    span.textContent = t[keys[index]];
+                }
+            });
+            
+            // Update hero section
+            const heroTitle = document.querySelector('h1');
+            if (heroTitle) heroTitle.textContent = t.heroTitle;
+            
+            const heroDesc = document.querySelector('section p');
+            if (heroDesc) heroDesc.textContent = t.heroDescription;
+            
+            const heroBtn = document.querySelector('.pulse-button');
+            if (heroBtn) heroBtn.textContent = t.heroButton;
+            
+            // Update services section
+            const servicesTitle = document.querySelector('#services h2');
+            if (servicesTitle) servicesTitle.textContent = t.servicesTitle;
+            
+            // Update service cards
+            const serviceCards = document.querySelectorAll('#services .card-hover');
+            if (serviceCards.length >= 3) {
+                // Website card
+                const websiteCard = serviceCards[0];
+                const websiteTitleEl = websiteCard.querySelector('h3');
+                const websiteDescEl = websiteCard.querySelector('p');
+                const websitePriceEl = websiteCard.querySelector('.text-white\\/90');
+                const websiteDetailBtn = websiteCard.querySelector('button');
+                if (websiteTitleEl) websiteTitleEl.textContent = t.websiteTitle;
+                if (websiteDescEl) websiteDescEl.textContent = t.websiteDesc;
+                if (websitePriceEl) websitePriceEl.textContent = t.askPrice;
+                if (websiteDetailBtn) websiteDetailBtn.textContent = t.detailBtn;
+                
+                // Design card
+                const designCard = serviceCards[1];
+                const designTitleEl = designCard.querySelector('h3');
+                const designDescEl = designCard.querySelector('p');
+                const designPriceEl = designCard.querySelectorAll('.text-white\\/90')[0];
+                const designDetailBtn = designCard.querySelector('button');
+                if (designTitleEl) designTitleEl.textContent = t.designTitle;
+                if (designDescEl) designDescEl.textContent = t.designDesc;
+                if (designPriceEl) designPriceEl.textContent = t.askPrice;
+                if (designDetailBtn) designDetailBtn.textContent = t.detailBtn;
+                
+                // Ads card
+                const adsCard = serviceCards[2];
+                const adsTitleEl = adsCard.querySelector('h3');
+                const adsDescEl = adsCard.querySelector('p');
+                const adsPriceEl = adsCard.querySelectorAll('.text-white\\/90')[0];
+                const adsDetailBtn = adsCard.querySelector('button');
+                if (adsTitleEl) adsTitleEl.textContent = t.adsTitle;
+                if (adsDescEl) adsDescEl.textContent = t.adsDesc;
+                if (adsPriceEl) adsPriceEl.textContent = t.askPrice;
+                if (adsDetailBtn) adsDetailBtn.textContent = t.detailBtn;
+            }
+            
+            // Update website examples section
+            const examplesSection = document.querySelector('.py-12.px-4.bg-gray-50');
+            if (examplesSection) {
+                const examplesTitle = examplesSection.querySelector('h2');
+                if (examplesTitle && examplesTitle.textContent.includes('Contoh') || examplesTitle.textContent.includes('Examples')) {
+                    examplesTitle.textContent = t.examplesTitle;
+                }
+                
+                const exampleCards = examplesSection.querySelectorAll('.card-hover');
+                if (exampleCards.length >= 2) {
+                    // Automotive card
+                    const autoCard = exampleCards[0];
+                    const autoTitle = autoCard.querySelector('h3');
+                    const autoDesc = autoCard.querySelector('p');
+                    const autoPreview = autoCard.querySelector('.flex.items-center span');
+                    const autoBtn = autoCard.querySelector('button');
+                    if (autoTitle) autoTitle.textContent = t.automotiveTitle;
+                    if (autoDesc) autoDesc.textContent = t.automotiveDesc;
+                    if (autoPreview) autoPreview.textContent = t.livePreview;
+                    if (autoBtn) autoBtn.textContent = t.viewDemo;
+                    
+                    // Property card
+                    const propCard = exampleCards[1];
+                    const propTitle = propCard.querySelector('h3');
+                    const propDesc = propCard.querySelector('p');
+                    const propPreview = propCard.querySelector('.flex.items-center span');
+                    const propBtn = propCard.querySelector('button');
+                    if (propTitle) propTitle.textContent = t.propertyTitle;
+                    if (propDesc) propDesc.textContent = t.propertyDesc;
+                    if (propPreview) propPreview.textContent = t.livePreview;
+                    if (propBtn) propBtn.textContent = t.viewDemo;
+                }
+            }
+            
+            // Update gallery section
+            const galleryTitle = document.querySelector('#gallery h2');
+            if (galleryTitle) galleryTitle.textContent = t.galleryTitle;
+            
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (loadMoreBtn && !loadMoreBtn.disabled) {
+                if (isGalleryExpanded) {
+                    loadMoreBtn.textContent = t.hideImages;
+                } else {
+                    loadMoreBtn.textContent = t.loadMore;
+                }
+            }
+            
+            // Update stats section
+            const statsTitle = document.querySelector('.bg-white.rounded-2xl h3');
+            if (statsTitle) statsTitle.textContent = t.statsTitle;
+            
+            const statLabels = document.querySelectorAll('.text-xs.text-gray-600');
+            if (statLabels.length >= 3) {
+                statLabels[0].textContent = t.projectsCompleted;
+                statLabels[1].textContent = t.clientSatisfaction;
+                statLabels[2].textContent = t.support;
+            }
+            
+            const startProjectBtn = document.querySelector('.w-full.gradient-bg');
+            if (startProjectBtn && startProjectBtn.textContent.includes('Mulai') || startProjectBtn.textContent.includes('Start')) {
+                startProjectBtn.textContent = t.startProject;
+            }
+            
+            // Update testimonials section
+            const testimonialsTitle = document.querySelector('.py-12.px-4.bg-white h2');
+            if (testimonialsTitle) testimonialsTitle.textContent = t.testimonialsTitle;
+            
+            // Update contact section
+            const contactTitle = document.querySelector('#contact h2');
+            if (contactTitle) contactTitle.textContent = t.contactTitle;
+            
+            const contactDesc = document.querySelector('#contact p');
+            if (contactDesc) contactDesc.textContent = t.contactDesc;
+            
+            const contactBtns = document.querySelectorAll('#contact button');
+            if (contactBtns.length >= 2) {
+                contactBtns[0].innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>${t.chatWhatsapp}`;
+                contactBtns[1].textContent = t.emailConsult;
+            }
+            
+            // Update chat widget
+            const consultText = document.querySelector('#chatBubble p');
+            if (consultText && consultText.textContent.includes('Konsultasi') || consultText.textContent.includes('Consult')) {
+                consultText.textContent = t.consultWith;
+            }
+            
+            const onlineText = document.querySelector('#chatBubble .text-xs');
+            if (onlineText && (onlineText.textContent.includes('Sekarang') || onlineText.textContent.includes('now'))) {
+                onlineText.textContent = t.onlineNow;
+            }
+            
+            // Update WhatsApp menu options
+            const whatsappOptions = document.querySelectorAll('.whatsapp-option');
+            if (whatsappOptions.length >= 4) {
+                const optionTexts = [
+                    [t.websiteTitle, t.websiteConsult],
+                    [t.designTitle, t.designConsult],
+                    [t.adsTitle, t.adsConsult],
+                    ['Konsultasi Umum', t.generalConsult]
+                ];
+                
+                if (lang === 'en') {
+                    optionTexts[3][0] = 'General Consultation';
+                }
+                
+                whatsappOptions.forEach((option, index) => {
+                    if (optionTexts[index]) {
+                        const titleEl = option.querySelector('.text-sm.font-medium');
+                        const descEl = option.querySelector('.text-xs.text-gray-500');
+                        if (titleEl) titleEl.textContent = optionTexts[index][0];
+                        if (descEl) descEl.textContent = optionTexts[index][1];
+                    }
+                });
+            }
         }
 
         // Gallery Functions
         function toggleGallery() {
             const hiddenItems = document.querySelectorAll('.gallery-hidden');
             const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const t = translations[currentLanguage];
             
             if (!isGalleryExpanded) {
                 // Show loading
-                loadMoreBtn.innerHTML = '⏳ Memuat...';
+                loadMoreBtn.innerHTML = t.loading;
                 loadMoreBtn.disabled = true;
                 
                 setTimeout(() => {
@@ -1104,13 +1434,13 @@
                         }, index * 100);
                     });
                     
-                    loadMoreBtn.innerHTML = '📸 Sembunyikan Gambar';
+                    loadMoreBtn.innerHTML = t.hideImages;
                     loadMoreBtn.disabled = false;
                     isGalleryExpanded = true;
                 }, 800);
             } else {
                 // Hide items
-                loadMoreBtn.innerHTML = '⏳ Menyembunyikan...';
+                loadMoreBtn.innerHTML = t.hiding;
                 loadMoreBtn.disabled = true;
                 
                 hiddenItems.forEach((item, index) => {
@@ -1126,7 +1456,7 @@
                 });
                 
                 setTimeout(() => {
-                    loadMoreBtn.innerHTML = '📸 Lihat Lebih Banyak';
+                    loadMoreBtn.innerHTML = t.loadMore;
                     loadMoreBtn.disabled = false;
                     isGalleryExpanded = false;
                 }, 1000);
@@ -1536,5 +1866,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9830008975d487ba',t:'MTc1ODUyNTIzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98302825e16f9c62',t:'MTc1ODUyNjg1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
