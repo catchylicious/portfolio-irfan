@@ -71,13 +71,9 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
         <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg overflow-hidden border-2 border-gray-200">
-                    <img src="https://via.placeholder.com/40x40/667eea/ffffff?text=I" alt="Creative by IRFAN Logo" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Logo failed to load'; this.style.display='none';">
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-sm font-bold text-gray-800">Creative by</span>
-                    <span class="text-xs font-semibold gradient-bg bg-clip-text text-transparent">IRFAN</span>
+            <div class="flex items-center">
+                <div class="h-8 rounded-lg overflow-hidden">
+                    <img src="./image/logo-inclde-hitam.png" alt="Logo" class="h-full w-auto object-contain" onerror="this.src=''; this.alt='Logo failed to load'; this.style.display='none';">
                 </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -149,18 +145,67 @@
     <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
 
     <!-- Hero Section -->
-    <section class="pt-20 pb-12 px-4">
-        <div class="max-w-md mx-auto text-center">
+    <section class="pt-20 pb-12 px-4 relative overflow-hidden">
+        <!-- Floating Background Images -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Image 1 - Top Left -->
+            <div class="absolute top-8 left-4 w-16 h-16 rounded-xl overflow-hidden shadow-lg opacity-20 floating" style="animation-delay: 0s;">
+                <div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Image 2 - Top Center Right -->
+            <div class="absolute top-12 left-1/2 transform translate-x-12 w-12 h-12 rounded-lg overflow-hidden shadow-lg opacity-25 floating" style="animation-delay: 1s;">
+                <div class="w-full h-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Image 3 - Middle Center Left -->
+            <div class="absolute top-32 left-1/2 transform -translate-x-20 w-20 h-20 rounded-2xl overflow-hidden shadow-lg opacity-15 floating" style="animation-delay: 2s;">
+                <div class="w-full h-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Image 4 - Middle Right -->
+            <div class="absolute top-40 right-2 w-14 h-14 rounded-xl overflow-hidden shadow-lg opacity-30 floating" style="animation-delay: 0.5s;">
+                <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Image 5 - Bottom Center -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 translate-x-8 w-18 h-18 rounded-2xl overflow-hidden shadow-lg opacity-20 floating" style="animation-delay: 1.5s;">
+                <div class="w-full h-full bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center">
+                    <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="max-w-md mx-auto text-center relative z-10">
             <div class="floating mb-6">
-                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
+                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4 relative z-20">
                     <div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                         <span class="text-white text-2xl font-bold">I</span>
                     </div>
                 </div>
             </div>
-            <h1 class="text-3xl font-bold text-gray-800 mb-4 slide-in" data-lang-id="hero-title">Hai Aku Irfan 👋</h1>
-            <p class="text-gray-600 mb-8 slide-in leading-relaxed" data-lang-id="hero-desc">8 Tahun di dunia Marketing, dan sekarang mau bantu kamu untuk perbagus Website • Design • Ads Marketing yang menghasilkan konversi tinggi untuk bisnis Anda</p>
-            <button id="ctaBtn" class="pulse-button gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all" data-lang-id="cta-btn">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4 slide-in relative z-20" data-lang-id="hero-title">Hai Aku Irfan 👋</h1>
+            <p class="text-gray-600 mb-8 slide-in leading-relaxed relative z-20" data-lang-id="hero-desc">8 Tahun di dunia Marketing, dan sekarang mau bantu kamu untuk perbagus Website • Design • Ads Marketing yang menghasilkan konversi tinggi untuk bisnis Anda</p>
+            <button id="ctaBtn" class="pulse-button gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all relative z-20" data-lang-id="cta-btn">
                 Mulai Konsultasi Gratis
             </button>
         </div>
@@ -249,11 +294,14 @@
             <div class="space-y-4 mb-6" id="portfolioGrid">
                 <!-- Design Social Media -->
                 <div class="portfolio-item card-hover bg-white rounded-2xl overflow-hidden shadow-sm" data-category="design" data-page="1">
-                    <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #6f414f 0%, #a47280 100%);">
-                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        <div class="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full px-2 py-1">
+                    <div class="h-40 relative overflow-hidden">
+                        <img src="./image/design-andy-1.jpg" alt="Design Social Media Andy" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full flex items-center justify-center" style="background: linear-gradient(135deg, #6f414f 0%, #a47280 100%); display: none;">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1">
                             <span class="text-white text-xs font-medium" data-lang-id="social-media-design">Social Media Design</span>
                         </div>
                     </div>
@@ -1069,7 +1117,7 @@
                     title: 'Design Social Media',
                     description: 'Membuat 2 postingan bulanan Mobil Wuling dengan promo yang menarik di bulan September. Design dibuat khusus untuk meningkatkan engagement dan awareness brand Wuling dengan visual yang eye-catching dan informasi promo yang jelas.',
                     images: [
-                        'https://via.placeholder.com/200x200/6f414f/ffffff?text=Wuling+Post+1',
+                        './image/design-andy-1.jpg',
                         'https://via.placeholder.com/200x200/a47280/ffffff?text=Wuling+Post+2',
                         'https://via.placeholder.com/200x200/6f414f/ffffff?text=Story+Design',
                         'https://via.placeholder.com/200x200/a47280/ffffff?text=Promo+Banner'
@@ -1514,5 +1562,5 @@
         document.getElementById('langId').addEventListener('click', () => switchLanguage('id'));
         document.getElementById('langEn').addEventListener('click', () => switchLanguage('en'));
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982e64671283d16b',t:'MTc1ODUwODM1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982edf29813ee5ce',t:'MTc1ODUxMzM3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
