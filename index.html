@@ -79,10 +79,10 @@
             <div class="flex items-center space-x-2">
                 <!-- Language Toggle -->
                 <div class="flex items-center bg-gray-100 rounded-lg p-1">
-                    <button id="langId" class="lang-btn active px-2 py-1 rounded text-xs font-medium transition-colors bg-white text-gray-800 shadow-sm">ID</button>
-                    <button id="langEn" class="lang-btn px-2 py-1 rounded text-xs font-medium transition-colors text-gray-600 hover:text-gray-800">EN</button>
+                    <button onclick="switchLang('id')" class="lang-btn active px-2 py-1 rounded text-xs font-medium transition-colors bg-white text-gray-800 shadow-sm">ID</button>
+                    <button onclick="switchLang('en')" class="lang-btn px-2 py-1 rounded text-xs font-medium transition-colors text-gray-600 hover:text-gray-800">EN</button>
                 </div>
-                <button id="menuBtn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <button onclick="openMenu()" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -96,7 +96,7 @@
         <div class="p-4 border-b border-gray-100">
             <div class="flex justify-between items-center">
                 <h3 class="text-lg font-semibold text-gray-800">Menu</h3>
-                <button id="closeMenuBtn" class="p-2 hover:bg-gray-100 rounded-full">
+                <button onclick="closeMenu()" class="p-2 hover:bg-gray-100 rounded-full">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -106,7 +106,7 @@
         <div class="p-4">
             <ul class="space-y-4">
                 <li>
-                    <a href="#" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors" data-section="home">
+                    <a href="#" onclick="navigateToSection('home')" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
                         <svg class="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                         </svg>
@@ -114,7 +114,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors" data-section="services">
+                    <a href="#" onclick="navigateToSection('services')" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
                         <svg class="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                         </svg>
@@ -122,15 +122,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors" data-section="portfolio">
+                    <a href="#" onclick="navigateToSection('gallery')" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
                         <svg class="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
-                        <span class="text-gray-700 font-medium">Portfolio</span>
+                        <span class="text-gray-700 font-medium">Gallery</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors" data-section="contact">
+                    <a href="#" onclick="navigateToSection('contact')" class="menu-link flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
                         <svg class="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
@@ -142,7 +142,7 @@
     </div>
 
     <!-- Menu Overlay -->
-    <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+    <div id="menuOverlay" onclick="closeMenu()" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
 
     <!-- Hero Section -->
     <section class="pt-20 pb-12 px-4 relative overflow-hidden">
@@ -209,169 +209,490 @@
                     </div>
                 </div>
             </div>
-            <h1 class="text-3xl font-bold text-gray-800 mb-4 slide-in relative z-20" data-lang-id="hero-title">Hai Aku Irfan 👋</h1>
-            <p class="text-gray-600 mb-8 slide-in leading-relaxed relative z-20" data-lang-id="hero-desc">8 Tahun di dunia Marketing, dan sekarang mau bantu kamu untuk perbagus Website • Design • Ads Marketing yang menghasilkan konversi tinggi untuk bisnis Anda</p>
-            <button id="ctaBtn" class="pulse-button gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all relative z-20" data-lang-id="cta-btn">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4 slide-in relative z-20">Hai Aku Irfan 👋</h1>
+            <p class="text-gray-600 mb-8 slide-in leading-relaxed relative z-20">8 Tahun di dunia Marketing, dan sekarang mau bantu kamu untuk perbagus Website • Design • Ads Marketing yang menghasilkan konversi tinggi untuk bisnis Anda</p>
+            <button onclick="scrollToContact()" class="pulse-button gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all relative z-20">
                 Mulai Konsultasi Gratis
             </button>
         </div>
     </section>
 
     <!-- Services -->
-    <section class="py-12 px-4 bg-white">
+    <section id="services" class="py-12 px-4 bg-white">
         <div class="max-w-md mx-auto">
             <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Layanan Kami</h2>
             <div class="space-y-4">
-                <div class="card-hover bg-gradient-to-r from-gray-50 to-blue-50 p-6 rounded-2xl border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4" style="background-color: #365071;">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Website Development Card -->
+                <div class="card-hover relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0">
+                        <img src="./image/img-web.jpg" alt="Website Development Background" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center" style="display: none;">
+                            <svg class="w-16 h-16 text-white opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-800">Website Development</h3>
                     </div>
-                    <p class="text-gray-600 text-sm mb-4">Website responsif, cepat, dan SEO-friendly yang meningkatkan kredibilitas bisnis Anda</p>
-                    <div class="flex justify-between items-center">
-                        <span class="font-semibold" style="color: #365071;">Mulai 850rb</span>
-                        <button class="text-white px-4 py-2 rounded-lg text-sm transition-colors" style="background-color: #365071;" onmouseover="this.style.backgroundColor='#6e7888'" onmouseout="this.style.backgroundColor='#365071'" onclick="showServiceDetail('website')">Detail</button>
+                    
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-black/60"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 p-6 h-full flex flex-col justify-between text-white">
+                        <div>
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Website Development</h3>
+                                    <p class="text-sm text-white/90">Website responsif, cepat, dan SEO-friendly</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div class="text-white/90 font-semibold">
+                                Tanya Untuk Harga
+                            </div>
+                            <button onclick="showServiceDetail('website')" class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
+                                Detail
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card-hover bg-gradient-to-r from-gray-50 to-pink-50 p-6 rounded-2xl border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4" style="background-color: #6f414f;">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Design Social Media Card -->
+                <div class="card-hover relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0">
+                        <img src="./image/img-design.jpg" alt="Design Social Media Background" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center" style="display: none;">
+                            <svg class="w-16 h-16 text-white opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-800">Design Postingan Social Media</h3>
                     </div>
-                    <p class="text-gray-600 text-sm mb-4">Design postingan social media yang menarik dan profesional, 100% bukan template</p>
-                    <div class="flex justify-between items-center">
-                        <span class="font-semibold" style="color: #6f414f;">Mulai 50rb</span>
-                        <button class="text-white px-4 py-2 rounded-lg text-sm transition-colors" style="background-color: #6f414f;" onmouseover="this.style.backgroundColor='#a47280'" onmouseout="this.style.backgroundColor='#6f414f'" onclick="showServiceDetail('design')">Detail</button>
+                    
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-black/60"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 p-6 h-full flex flex-col justify-between text-white">
+                        <div>
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Design Postingan Social Media</h3>
+                                    <p class="text-sm text-white/90">Design menarik dan profesional, 100% bukan template</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div class="text-white/90 font-semibold">
+                                Tanya Untuk Harga
+                            </div>
+                            <button onclick="showServiceDetail('design')" class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
+                                Detail
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card-hover bg-gradient-to-r from-gray-50 to-blue-50 p-6 rounded-2xl border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4" style="background-color: #6e7888;">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Ads Marketing Card -->
+                <div class="card-hover relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0">
+                        <img src="./image/img-ads.jpg" alt="Ads Marketing Background" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center" style="display: none;">
+                            <svg class="w-16 h-16 text-white opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-800">Ads Marketing</h3>
                     </div>
-                    <p class="text-gray-600 text-sm mb-4">Kampanye iklan yang tepat sasaran untuk meningkatkan penjualan dan brand awareness</p>
-                    <div class="flex justify-between items-center">
-                        <span class="font-semibold" style="color: #6e7888;">Mulai 1jt</span>
-                        <button class="text-white px-4 py-2 rounded-lg text-sm transition-colors" style="background-color: #6e7888;" onmouseover="this.style.backgroundColor='#a2acbd'" onmouseout="this.style.backgroundColor='#6e7888'" onclick="showServiceDetail('ads')">Detail</button>
+                    
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-black/60"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 p-6 h-full flex flex-col justify-between text-white">
+                        <div>
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Ads Marketing</h3>
+                                    <p class="text-sm text-white/90">Kampanye iklan tepat sasaran untuk penjualan tinggi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div class="text-white/90 font-semibold">
+                                Tanya Untuk Harga
+                            </div>
+                            <button onclick="showServiceDetail('ads')" class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
+                                Detail
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
+    <!-- Website Examples -->
     <section class="py-12 px-4 bg-gray-50">
         <div class="max-w-md mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Portfolio Kami</h2>
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Contoh Website</h2>
+            <div class="space-y-4">
+                <!-- Web Otomotif Card -->
+                <div class="card-hover relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Background Preview Image -->
+                    <div class="absolute inset-0">
+                        <!-- Automotive Website Preview -->
+                        <div class="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                            <!-- Mock Website Layout -->
+                            <div class="w-full h-full relative overflow-hidden">
+                                <!-- Header Bar -->
+                                <div class="absolute top-0 w-full h-8 bg-blue-600 flex items-center px-4">
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    </div>
+                                    <div class="ml-4 text-xs text-white opacity-70">AutoDealer.com</div>
+                                </div>
+                                
+                                <!-- Navigation -->
+                                <div class="absolute top-8 w-full h-6 bg-white border-b flex items-center px-4">
+                                    <div class="text-xs text-gray-600 font-semibold">LOGO</div>
+                                    <div class="ml-auto flex space-x-3 text-xs text-gray-500">
+                                        <span>Home</span>
+                                        <span>Cars</span>
+                                        <span>About</span>
+                                        <span>Contact</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hero Section -->
+                                <div class="absolute top-14 w-full h-20 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center px-4">
+                                    <div class="text-white">
+                                        <div class="text-sm font-bold">Premium Cars</div>
+                                        <div class="text-xs opacity-80">Find Your Dream Car</div>
+                                    </div>
+                                    <!-- Car silhouette -->
+                                    <div class="ml-auto opacity-30">
+                                        <svg class="w-16 h-8" viewBox="0 0 64 32" fill="currentColor">
+                                            <path d="M8 20 L12 16 L20 15 L28 15 L36 15 L44 16 L48 20 L56 20 L56 24 L52 24 L52 26 C52 27 51 28 50 28 L46 28 C45 28 44 27 44 26 L44 24 L20 24 L20 26 C20 27 19 28 18 28 L14 28 C13 28 12 27 12 26 L12 24 L8 24 Z"/>
+                                            <circle cx="18" cy="26" r="3"/>
+                                            <circle cx="46" cy="26" r="3"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Cards -->
+                                <div class="absolute top-34 w-full px-4 py-2">
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <div class="h-12 bg-white rounded border shadow-sm"></div>
+                                        <div class="h-12 bg-white rounded border shadow-sm"></div>
+                                        <div class="h-12 bg-white rounded border shadow-sm"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-black/60"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 p-6 h-full flex flex-col justify-between text-white">
+                        <div>
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Web Otomotif</h3>
+                                    <p class="text-sm text-white/90">Showroom & Dealer Mobil</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-white/90">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                                Live Preview
+                            </div>
+                            <button onclick="viewWebsiteExample('otomotif')" class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
+                                Lihat Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Property Card -->
+                <div class="card-hover relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Background Preview Image -->
+                    <div class="absolute inset-0">
+                        <!-- Property Website Preview -->
+                        <div class="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                            <!-- Mock Website Layout -->
+                            <div class="w-full h-full relative overflow-hidden">
+                                <!-- Header Bar -->
+                                <div class="absolute top-0 w-full h-8 bg-green-600 flex items-center px-4">
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    </div>
+                                    <div class="ml-4 text-xs text-white opacity-70">PropertyPro.com</div>
+                                </div>
+                                
+                                <!-- Navigation -->
+                                <div class="absolute top-8 w-full h-6 bg-white border-b flex items-center px-4">
+                                    <div class="text-xs text-gray-600 font-semibold">LOGO</div>
+                                    <div class="ml-auto flex space-x-3 text-xs text-gray-500">
+                                        <span>Home</span>
+                                        <span>Properties</span>
+                                        <span>Agents</span>
+                                        <span>Contact</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hero Section -->
+                                <div class="absolute top-14 w-full h-20 bg-gradient-to-r from-green-500 to-green-700 flex items-center px-4">
+                                    <div class="text-white">
+                                        <div class="text-sm font-bold">Dream Homes</div>
+                                        <div class="text-xs opacity-80">Find Your Perfect Property</div>
+                                    </div>
+                                    <!-- House silhouette -->
+                                    <div class="ml-auto opacity-30">
+                                        <svg class="w-16 h-12" viewBox="0 0 64 48" fill="currentColor">
+                                            <path d="M12 36 L12 24 L20 16 L32 16 L44 24 L44 36 L52 36 L52 40 L4 40 L4 36 Z"/>
+                                            <path d="M8 24 L32 8 L56 24 L52 24 L32 12 L12 24 Z"/>
+                                            <rect x="28" y="28" width="8" height="12"/>
+                                            <rect x="16" y="26" width="6" height="6"/>
+                                            <rect x="40" y="26" width="6" height="6"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <!-- Property Cards -->
+                                <div class="absolute top-34 w-full px-4 py-2">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="h-16 bg-white rounded border shadow-sm p-2">
+                                            <div class="h-8 bg-gray-200 rounded mb-1"></div>
+                                            <div class="h-2 bg-gray-100 rounded"></div>
+                                        </div>
+                                        <div class="h-16 bg-white rounded border shadow-sm p-2">
+                                            <div class="h-8 bg-gray-200 rounded mb-1"></div>
+                                            <div class="h-2 bg-gray-100 rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-black/60"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 p-6 h-full flex flex-col justify-between text-white">
+                        <div>
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Web Property</h3>
+                                    <p class="text-sm text-white/90">Real Estate & Properti</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-white/90">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                                Live Preview
+                            </div>
+                            <button onclick="viewWebsiteExample('property')" class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">
+                                Lihat Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-12 px-4 bg-gray-50">
+        <div class="max-w-md mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Gallery</h2>
             
-            <!-- Filter Tabs -->
-            <div class="flex justify-center mb-8">
-                <div class="bg-white rounded-xl p-1 shadow-sm">
-                    <button class="filter-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all" data-filter="all">
-                        Semua
-                    </button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all" data-filter="website">
-                        Website
-                    </button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all" data-filter="design">
-                        Design
-                    </button>
-                    <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all" data-filter="ads">
-                        Ads
-                    </button>
-                </div>
-            </div>
-
-            <!-- Portfolio Grid -->
-            <div class="space-y-4 mb-6" id="portfolioGrid">
-                <!-- Design Social Media -->
-                <div class="portfolio-item card-hover bg-white rounded-2xl overflow-hidden shadow-sm" data-category="design" data-page="1">
-                    <div class="h-40 relative overflow-hidden">
-                        <img src="./image/design-andy-1.jpg" alt="Design Social Media Andy" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="w-full h-full flex items-center justify-center" style="background: linear-gradient(135deg, #6f414f 0%, #a47280 100%); display: none;">
-                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1">
-                            <span class="text-white text-xs font-medium" data-lang-id="social-media-design">Social Media Design</span>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-lg mb-2" data-lang-id="social-media-title">Design Social Media</h4>
-                        <p class="text-gray-600 text-sm mb-3" data-lang-id="social-media-desc">Membuat 2 postingan bulanan Mobil Wuling dengan promo yang menarik di bulan September</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex space-x-2">
-                                <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded-lg text-xs">Photoshop</span>
-                                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-lg text-xs">Instagram</span>
-                            </div>
-                            <button class="font-medium text-sm transition-colors" style="color: #365071;" onmouseover="this.style.color='#6e7888'" onmouseout="this.style.color='#365071'" onclick="showProjectDetail('socialmedia')">
-                                <span data-lang-id="detail-btn">Detail</span> →
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Design Logo Brand -->
-                <div class="portfolio-item card-hover bg-white rounded-2xl overflow-hidden shadow-sm" data-category="design" data-page="1">
-                    <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #365071 0%, #6e7888 100%);">
+            <!-- Responsive Gallery Grid -->
+            <div class="gallery-grid columns-3 gap-3 space-y-3">
+                <!-- First 9 Gallery Items (Always Visible) -->
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-1.png" alt="Gallery Image 1" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center" style="display: none;">
                         <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
-                        <div class="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full px-2 py-1">
-                            <span class="text-white text-xs font-medium" data-lang-id="logo-design">Logo Design</span>
-                        </div>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-lg mb-2" data-lang-id="logo-title">Design Logo Peremajaan Brand</h4>
-                        <p class="text-gray-600 text-sm mb-3" data-lang-id="logo-desc">Membuat design logo sampai menu design untuk sebuah brand kecantikan yang memiliki layanan berupa Eyelash, Sulam Alis Dll. Peremajaan ke arah yang lebih modern dan lebih eye catchy</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex space-x-2">
-                                <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded-lg text-xs">Illustrator</span>
-                                <span class="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs">Branding</span>
-                            </div>
-                            <button class="font-medium text-sm transition-colors" style="color: #365071;" onmouseover="this.style.color='#6e7888'" onmouseout="this.style.color='#365071'" onclick="showProjectDetail('logodesign')">
-                                <span data-lang-id="detail-btn">Detail</span> →
-                            </button>
-                        </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-9.jpg" alt="Gallery Image 2" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-8.jpg" alt="Gallery Image 3" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-3.jpg" alt="Gallery Image 4" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-4.jpg" alt="Gallery Image 5" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-5.jpg" alt="Gallery Image 6" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-6.jpg" alt="Gallery Image 7" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-teal-400 to-green-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-7.jpg" alt="Gallery Image 8" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+                    <img src="./image/hero-image-10.jpg" alt="Gallery Image 9" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Hidden Gallery Items (Show after Load More) -->
+                <div class="gallery-item gallery-hidden break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105" style="display: none;">
+                    <img src="./image/hero-image-12.jpg" alt="Gallery Image 10" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-violet-400 to-purple-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item gallery-hidden break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105" style="display: none;">
+                    <img src="./image/hero-image-13.jpg" alt="Gallery Image 11" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item gallery-hidden break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105" style="display: none;">
+                    <img src="./image/hero-image-14.jpg" alt="Gallery Image 12" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item gallery-hidden break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105" style="display: none;">
+                    <img src="./image/hero-image-16.png" alt="Gallery Image 13" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="gallery-item gallery-hidden break-inside-avoid mb-3 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105" style="display: none;">
+                    <img src="./image/hero-image-17.png" alt="Gallery Image 14" class="w-full h-auto object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-full aspect-square bg-gradient-to-br from-lime-400 to-green-500 flex items-center justify-center" style="display: none;">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
                     </div>
                 </div>
             </div>
-
-            <!-- Pagination -->
-            <div id="portfolioPagination" class="flex justify-center items-center space-x-2 mb-6">
-                <button id="prevPage" class="px-3 py-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <div id="pageNumbers" class="flex space-x-1">
-                    <button class="page-btn px-3 py-2 rounded-lg text-sm font-medium transition-colors bg-blue-600 text-white" data-page="1">1</button>
-                    <button class="page-btn px-3 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-600 hover:bg-gray-200" data-page="2">2</button>
-                </div>
-                <button id="nextPage" class="px-3 py-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-8">
+                <button onclick="toggleGallery()" id="loadMoreBtn" class="px-6 py-3 bg-white text-gray-700 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:bg-gray-50">
+                    📸 Lihat Lebih Banyak
                 </button>
             </div>
 
             <!-- Stats -->
-            <div class="bg-white rounded-2xl p-6 mb-6">
+            <div class="bg-white rounded-2xl p-6 mt-8 mb-6">
                 <h3 class="text-lg font-semibold text-center mb-4 text-gray-800">Pencapaian Kami</h3>
                 <div class="grid grid-cols-3 gap-4 text-center">
                     <div>
@@ -389,7 +710,7 @@
                 </div>
             </div>
 
-            <button id="newProjectBtn" class="w-full gradient-bg text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all">
+            <button onclick="openWhatsApp('project')" class="w-full gradient-bg text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all">
                 🚀 Mulai Proyek Baru
             </button>
         </div>
@@ -399,65 +720,66 @@
     <section class="py-12 px-4 bg-white">
         <div class="max-w-md mx-auto">
             <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Kata Klien</h2>
-            <div id="testimonialSlider" class="relative overflow-hidden touch-pan-x">
+            <div id="testimonialSlider" class="relative overflow-hidden">
                 <div class="flex transition-transform duration-500" id="testimonialTrack">
                     <div class="w-full flex-shrink-0 px-2">
-                        <div class="bg-gray-50 p-6 rounded-2xl">
+                        <div class="bg-gray-50 p-6 rounded-2xl mx-12">
                             <div class="flex mb-4">
                                 <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                             </div>
-                            <p class="text-gray-600 mb-4" data-lang-id="testimonial-1">"Keren design nya dan menarik"</p>
+                            <p class="text-gray-600 mb-4">"Keren design nya dan menarik"</p>
                             <div class="flex items-center">
                                 <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
                                     <span class="text-white font-semibold">A</span>
                                 </div>
                                 <div>
                                     <p class="font-semibold text-sm">Andy</p>
-                                    <p class="text-xs text-gray-500" data-lang-id="testimonial-1-job">Supervisor Sales Otomotif</p>
+                                    <p class="text-xs text-gray-500">Supervisor Sales Otomotif</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="w-full flex-shrink-0 px-2">
-                        <div class="bg-gray-50 p-6 rounded-2xl">
+                        <div class="bg-gray-50 p-6 rounded-2xl mx-12">
                             <div class="flex mb-4">
                                 <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                             </div>
-                            <p class="text-gray-600 mb-4" data-lang-id="testimonial-2">"Cocok untuk promosi, mantap pokoknya"</p>
+                            <p class="text-gray-600 mb-4">"Cocok untuk promosi, mantap pokoknya"</p>
                             <div class="flex items-center">
                                 <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mr-3">
                                     <span class="text-white font-semibold">W</span>
                                 </div>
                                 <div>
                                     <p class="font-semibold text-sm">Wandi</p>
-                                    <p class="text-xs text-gray-500" data-lang-id="testimonial-2-job">Sales Otomotif</p>
+                                    <p class="text-xs text-gray-500">Sales Otomotif</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div class="flex justify-center mt-4 space-x-2">
-                <button class="w-2 h-2 rounded-full bg-blue-500 testimonial-dot active"></button>
-                <button class="w-2 h-2 rounded-full bg-gray-300 testimonial-dot"></button>
+            <div class="flex justify-center mt-6 space-x-2">
+                <button onclick="showTestimonial(0)" class="w-3 h-3 rounded-full bg-blue-500 testimonial-dot transition-all duration-300 hover:scale-125"></button>
+                <button onclick="showTestimonial(1)" class="w-3 h-3 rounded-full bg-gray-300 testimonial-dot transition-all duration-300 hover:scale-125"></button>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section class="py-16 px-6 gradient-bg mb-20">
+    <section id="contact" class="py-16 px-6 gradient-bg mb-20">
         <div class="max-w-md mx-auto text-center">
-            <h2 class="text-2xl font-bold text-white mb-4" data-lang-id="contact-title">Siap Memulai Proyek?</h2>
-            <p class="text-white/90 mb-8" data-lang-id="contact-desc">Konsultasi gratis untuk menentukan solusi terbaik bagi bisnis Anda</p>
+            <h2 class="text-2xl font-bold text-white mb-4">Siap Memulai Proyek?</h2>
+            <p class="text-white/90 mb-8">Konsultasi gratis untuk menentukan solusi terbaik bagi bisnis Anda</p>
             <div class="space-y-4">
-                <button id="whatsappBtn" class="w-full bg-green-500 text-white py-4 rounded-xl font-semibold flex items-center justify-center hover:bg-green-600 transition-colors">
+                <button onclick="openWhatsApp('general')" class="w-full bg-green-500 text-white py-4 rounded-xl font-semibold flex items-center justify-center hover:bg-green-600 transition-colors">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                     </svg>
-                    <span data-lang-id="whatsapp-btn">Chat WhatsApp</span>
+                    Chat WhatsApp
                 </button>
-                <button class="w-full bg-white/20 text-white py-4 rounded-xl font-semibold border border-white/30 hover:bg-white/30 transition-colors">
-                    📧 <span data-lang-id="email-btn">Email Konsultasi</span>
+                <button onclick="openEmail()" class="w-full bg-white/20 text-white py-4 rounded-xl font-semibold border border-white/30 hover:bg-white/30 transition-colors">
+                    📧 Email Konsultasi
                 </button>
             </div>
         </div>
@@ -469,7 +791,7 @@
             <!-- Modal Header -->
             <div class="sticky top-0 bg-white rounded-t-2xl border-b border-gray-100 p-4 flex justify-between items-center">
                 <h3 id="serviceModalTitle" class="text-lg font-bold text-gray-800">Detail Layanan</h3>
-                <button id="closeServiceModal" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <button onclick="closeServiceModal()" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -513,60 +835,14 @@
                 
                 <!-- Action Buttons -->
                 <div class="mt-6 space-y-3">
-                    <button id="serviceModalWhatsapp" class="w-full bg-green-500 text-white py-3 rounded-xl font-semibold flex items-center justify-center hover:bg-green-600 transition-colors">
+                    <button onclick="openWhatsAppService()" id="serviceModalWhatsapp" class="w-full bg-green-500 text-white py-3 rounded-xl font-semibold flex items-center justify-center hover:bg-green-600 transition-colors">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                         </svg>
                         Konsultasi Gratis
                     </button>
-                    <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
+                    <button onclick="openEmail()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
                         📧 Minta Penawaran
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Detail Modal -->
-    <div id="projectModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <!-- Modal Header -->
-            <div class="sticky top-0 bg-white rounded-t-2xl border-b border-gray-100 p-4 flex justify-between items-center">
-                <h3 id="modalTitle" class="text-lg font-bold text-gray-800">Detail Project</h3>
-                <button id="closeModal" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Modal Content -->
-            <div class="p-6">
-                <!-- Project Images Gallery -->
-                <div id="modalGallery" class="mb-6">
-                    <div class="grid grid-cols-2 gap-3" id="modalImages">
-                        <!-- Images will be populated here -->
-                    </div>
-                </div>
-                
-                <!-- Project Info -->
-                <div class="space-y-4">
-                    <div>
-                        <h4 class="font-semibold text-gray-800 mb-2">📋 Deskripsi Project</h4>
-                        <p id="modalDescription" class="text-gray-600 text-sm leading-relaxed"></p>
-                    </div>
-                </div>
-                
-                <!-- Action Buttons -->
-                <div class="mt-6 space-y-3">
-                    <button id="modalWhatsapp" class="w-full bg-green-500 text-white py-3 rounded-xl font-semibold flex items-center justify-center hover:bg-green-600 transition-colors">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                        </svg>
-                        <span data-lang-id="discuss-similar">Diskusi Project Serupa</span>
-                    </button>
-                    <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
-                        📧 <span data-lang-id="request-proposal">Minta Proposal Detail</span>
                     </button>
                 </div>
             </div>
@@ -584,8 +860,8 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="text-sm font-medium text-gray-800" data-lang-id="chat-bubble-title">Konsultasi dengan Irfan</p>
-                    <p class="text-xs text-gray-500" data-lang-id="chat-bubble-time">Sekarang</p>
+                    <p class="text-sm font-medium text-gray-800">Konsultasi dengan Irfan</p>
+                    <p class="text-xs text-gray-500">Sekarang</p>
                 </div>
             </div>
             <div class="absolute -bottom-2 right-8 w-4 h-4 bg-white transform rotate-45 shadow-lg"></div>
@@ -598,16 +874,16 @@
                     <span class="text-white font-semibold text-sm">I</span>
                 </div>
                 <div>
-                    <p class="font-semibold text-gray-800" data-lang-id="chat-menu-name">Irfan - Digital Expert</p>
+                    <p class="font-semibold text-gray-800">Irfan - Digital Expert</p>
                     <p class="text-xs text-green-500 flex items-center">
                         <span class="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                        <span data-lang-id="chat-menu-status">Online sekarang</span>
+                        Online sekarang
                     </p>
                 </div>
             </div>
             
             <div class="space-y-3">
-                <button class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors" data-message="Halo Irfan! Saya tertarik dengan layanan Website Development. Bisa konsultasi gratis untuk project website saya?">
+                <button onclick="openWhatsAppOption('website')" class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="flex items-center">
                         <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
                             <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -615,13 +891,13 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm font-medium text-gray-800" data-lang-id="menu-website-title">Website Development</p>
-                            <p class="text-xs text-gray-500" data-lang-id="menu-website-desc">Konsultasi pembuatan website</p>
+                            <p class="text-sm font-medium text-gray-800">Website Development</p>
+                            <p class="text-xs text-gray-500">Konsultasi pembuatan website</p>
                         </div>
                     </div>
                 </button>
 
-                <button class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors" data-message="Halo Irfan! Saya butuh bantuan untuk Design Postingan Social Media. Bisa konsultasi untuk design postingan bisnis saya?">
+                <button onclick="openWhatsAppOption('design')" class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="flex items-center">
                         <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
                             <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -629,13 +905,13 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm font-medium text-gray-800" data-lang-id="menu-design-title">Design Social Media</p>
-                            <p class="text-xs text-gray-500" data-lang-id="menu-design-desc">Konsultasi design postingan</p>
+                            <p class="text-sm font-medium text-gray-800">Design Social Media</p>
+                            <p class="text-xs text-gray-500">Konsultasi design postingan</p>
                         </div>
                     </div>
                 </button>
 
-                <button class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors" data-message="Halo Irfan! Saya ingin meningkatkan penjualan dengan Ads Marketing. Bisa konsultasi untuk strategi iklan bisnis saya?">
+                <button onclick="openWhatsAppOption('ads')" class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="flex items-center">
                         <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
                             <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -643,13 +919,13 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm font-medium text-gray-800" data-lang-id="menu-ads-title">Ads Marketing</p>
-                            <p class="text-xs text-gray-500" data-lang-id="menu-ads-desc">Konsultasi strategi iklan</p>
+                            <p class="text-sm font-medium text-gray-800">Ads Marketing</p>
+                            <p class="text-xs text-gray-500">Konsultasi strategi iklan</p>
                         </div>
                     </div>
                 </button>
 
-                <button class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors" data-message="Halo Irfan! Saya mau konsultasi gratis untuk project digital saya. Kapan bisa chat?">
+                <button onclick="openWhatsAppOption('general')" class="whatsapp-option w-full text-left p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="flex items-center">
                         <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
                             <svg class="w-4 h-4 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -657,8 +933,8 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm font-medium text-gray-800" data-lang-id="menu-general-title">Konsultasi Umum</p>
-                            <p class="text-xs text-gray-500" data-lang-id="menu-general-desc">Chat langsung dengan Irfan</p>
+                            <p class="text-sm font-medium text-gray-800">Konsultasi Umum</p>
+                            <p class="text-xs text-gray-500">Chat langsung dengan Irfan</p>
                         </div>
                     </div>
                 </button>
@@ -668,7 +944,7 @@
         </div>
 
         <!-- Main Chat Button -->
-        <button id="floatingChatBtn" class="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 floating relative">
+        <button onclick="toggleChatMenu()" id="floatingChatBtn" class="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 floating relative">
             <svg id="chatIcon" class="w-6 h-6 text-white transition-all duration-300" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
             </svg>
@@ -682,25 +958,25 @@
     <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50">
         <div class="max-w-md mx-auto px-4 py-2">
             <div class="flex justify-around">
-                <button class="nav-item active flex flex-col items-center py-2 px-3 rounded-lg" data-section="home">
+                <button onclick="navigateToSection('home')" class="nav-item active flex flex-col items-center py-2 px-3 rounded-lg" style="color: #365071; background-color: #f8fafc;">
                     <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
                     <span class="text-xs">Home</span>
                 </button>
-                <button class="nav-item flex flex-col items-center py-2 px-3 rounded-lg" data-section="services">
+                <button onclick="navigateToSection('services')" class="nav-item flex flex-col items-center py-2 px-3 rounded-lg text-gray-600">
                     <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                     </svg>
                     <span class="text-xs">Layanan</span>
                 </button>
-                <button class="nav-item flex flex-col items-center py-2 px-3 rounded-lg" data-section="portfolio">
+                <button onclick="navigateToSection('gallery')" class="nav-item flex flex-col items-center py-2 px-3 rounded-lg text-gray-600">
                     <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
-                    <span class="text-xs">Portfolio</span>
+                    <span class="text-xs">Gallery</span>
                 </button>
-                <button class="nav-item flex flex-col items-center py-2 px-3 rounded-lg" data-section="contact">
+                <button onclick="navigateToSection('contact')" class="nav-item flex flex-col items-center py-2 px-3 rounded-lg text-gray-600">
                     <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                     </svg>
@@ -711,497 +987,273 @@
     </nav>
 
     <script>
-        // Testimonial Slider
+        // Global variables
         let currentTestimonial = 0;
-        const testimonialTrack = document.getElementById('testimonialTrack');
-        const testimonialSlider = document.getElementById('testimonialSlider');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        let isAutoSliding = true;
-        let autoSlideInterval;
+        let isGalleryExpanded = false;
+        let isChatMenuOpen = false;
+        let currentServiceId = '';
 
-        function showTestimonial(index) {
-            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
-            testimonialDots.forEach((dot, i) => {
-                dot.classList.toggle('bg-blue-500', i === index);
-                dot.classList.toggle('bg-gray-300', i !== index);
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function startAutoSlide() {
-            if (autoSlideInterval) clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => {
-                if (isAutoSliding) {
-                    currentTestimonial = (currentTestimonial + 1) % 2;
-                    showTestimonial(currentTestimonial);
-                }
-            }, 5000);
-        }
-
-        function stopAutoSlide() {
-            isAutoSliding = false;
-            if (autoSlideInterval) clearInterval(autoSlideInterval);
-        }
-
-        function resumeAutoSlide() {
-            isAutoSliding = true;
-            startAutoSlide();
-        }
-
-        testimonialDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = index;
-                showTestimonial(currentTestimonial);
-                stopAutoSlide();
-                setTimeout(resumeAutoSlide, 3000); // Resume auto slide after 3 seconds
-            });
-        });
-
-        // Touch/Swipe functionality
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-
-        testimonialSlider.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-            stopAutoSlide();
-            testimonialTrack.style.transition = 'none';
-        });
-
-        testimonialSlider.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            currentX = e.touches[0].clientX;
-            const diffX = currentX - startX;
-            const translateX = -currentTestimonial * 100 + (diffX / testimonialSlider.offsetWidth) * 100;
-            testimonialTrack.style.transform = `translateX(${translateX}%)`;
-        });
-
-        testimonialSlider.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            testimonialTrack.style.transition = 'transform 0.5s';
+        // Initialize when page loads
+        window.addEventListener('load', function() {
+            // Show chat bubble after 3 seconds
+            setTimeout(showChatBubble, 3000);
             
-            const diffX = currentX - startX;
-            const threshold = testimonialSlider.offsetWidth * 0.2; // 20% of slider width
+            // Start testimonial auto-slide
+            startTestimonialSlider();
             
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0 && currentTestimonial > 0) {
-                    currentTestimonial--;
-                } else if (diffX < 0 && currentTestimonial < 1) {
-                    currentTestimonial++;
-                }
+            // Initialize swipe functionality
+            initTestimonialSwipe();
+        });
+
+        // Navigation Functions
+        function navigateToSection(section) {
+            // Update nav active state
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                item.style.color = '#6b7280';
+                item.style.backgroundColor = 'transparent';
+            });
+            
+            // Set active nav item
+            event.target.closest('.nav-item').classList.add('active');
+            event.target.closest('.nav-item').style.color = '#365071';
+            event.target.closest('.nav-item').style.backgroundColor = '#f8fafc';
+            
+            // Scroll to section
+            let targetElement;
+            switch(section) {
+                case 'home':
+                    targetElement = document.querySelector('section');
+                    break;
+                case 'services':
+                    targetElement = document.getElementById('services');
+                    break;
+                case 'gallery':
+                    targetElement = document.getElementById('gallery');
+                    break;
+                case 'contact':
+                    targetElement = document.getElementById('contact');
+                    break;
             }
             
-            showTestimonial(currentTestimonial);
-            setTimeout(resumeAutoSlide, 3000); // Resume auto slide after 3 seconds
-        });
-
-        // Mouse drag functionality for desktop
-        testimonialSlider.addEventListener('mousedown', (e) => {
-            startX = e.clientX;
-            isDragging = true;
-            stopAutoSlide();
-            testimonialTrack.style.transition = 'none';
-            testimonialSlider.style.cursor = 'grabbing';
-        });
-
-        testimonialSlider.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            currentX = e.clientX;
-            const diffX = currentX - startX;
-            const translateX = -currentTestimonial * 100 + (diffX / testimonialSlider.offsetWidth) * 100;
-            testimonialTrack.style.transform = `translateX(${translateX}%)`;
-        });
-
-        testimonialSlider.addEventListener('mouseup', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            testimonialTrack.style.transition = 'transform 0.5s';
-            testimonialSlider.style.cursor = 'grab';
-            
-            const diffX = currentX - startX;
-            const threshold = testimonialSlider.offsetWidth * 0.2;
-            
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0 && currentTestimonial > 0) {
-                    currentTestimonial--;
-                } else if (diffX < 0 && currentTestimonial < 1) {
-                    currentTestimonial++;
-                }
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
             
-            showTestimonial(currentTestimonial);
-            setTimeout(resumeAutoSlide, 3000);
-        });
+            // Close mobile menu if open
+            closeMenu();
+        }
 
-        testimonialSlider.addEventListener('mouseleave', () => {
-            if (isDragging) {
-                isDragging = false;
-                testimonialTrack.style.transition = 'transform 0.5s';
-                testimonialSlider.style.cursor = 'grab';
-                showTestimonial(currentTestimonial);
-                setTimeout(resumeAutoSlide, 3000);
-            }
-        });
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
 
-        // Set initial cursor style
-        testimonialSlider.style.cursor = 'grab';
-
-        // Start auto slide
-        startAutoSlide();
-
-        // Bottom Navigation
-        const navItems = document.querySelectorAll('.nav-item');
-        const sections = document.querySelectorAll('section');
-
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const targetSection = item.dataset.section;
-                
-                // Remove active class from all nav items
-                navItems.forEach(nav => {
-                    nav.classList.remove('active', 'text-blue-600', 'bg-blue-50');
-                    nav.classList.add('text-gray-600');
-                });
-                
-                // Add active class to clicked item
-                item.classList.add('active');
-                item.classList.remove('text-gray-600');
-                item.style.color = '#365071';
-                item.style.backgroundColor = '#f8fafc';
-                
-                // Scroll to section
-                let targetElement;
-                switch(targetSection) {
-                    case 'home':
-                        targetElement = document.querySelector('section');
-                        break;
-                    case 'services':
-                        targetElement = sections[1];
-                        break;
-                    case 'portfolio':
-                        targetElement = sections[2];
-                        break;
-                    case 'contact':
-                        targetElement = sections[4];
-                        break;
-                }
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // CTA Button
-        document.getElementById('ctaBtn').addEventListener('click', () => {
-            sections[4].scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // WhatsApp Button
-        document.getElementById('whatsappBtn').addEventListener('click', () => {
-            const message = encodeURIComponent('Halo! Saya tertarik dengan layanan digital Anda. Bisa konsultasi gratis?');
-            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank', 'noopener,noreferrer');
-        });
-
-        // Service Detail Buttons are handled by showServiceDetail function
-
-        // Mobile Menu Functions
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const menuBtn = document.getElementById('menuBtn');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const menuLinks = document.querySelectorAll('.menu-link');
-
+        // Menu Functions
         function openMenu() {
-            mobileMenu.classList.remove('translate-x-full');
-            menuOverlay.classList.remove('hidden');
+            document.getElementById('mobileMenu').classList.remove('translate-x-full');
+            document.getElementById('menuOverlay').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function closeMenu() {
-            mobileMenu.classList.add('translate-x-full');
-            menuOverlay.classList.add('hidden');
+            document.getElementById('mobileMenu').classList.add('translate-x-full');
+            document.getElementById('menuOverlay').classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
 
-        menuBtn.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
-        menuOverlay.addEventListener('click', closeMenu);
+        // Language Functions
+        function switchLang(lang) {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-gray-800', 'shadow-sm');
+                btn.classList.add('text-gray-600');
+            });
+            
+            if (lang === 'id') {
+                document.querySelector('[onclick="switchLang(\'id\')"]').classList.add('bg-white', 'text-gray-800', 'shadow-sm');
+                document.querySelector('[onclick="switchLang(\'id\')"]').classList.remove('text-gray-600');
+            } else {
+                document.querySelector('[onclick="switchLang(\'en\')"]').classList.add('bg-white', 'text-gray-800', 'shadow-sm');
+                document.querySelector('[onclick="switchLang(\'en\')"]').classList.remove('text-gray-600');
+            }
+        }
 
-        // Menu link navigation
-        menuLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetSection = link.dataset.section;
+        // Gallery Functions
+        function toggleGallery() {
+            const hiddenItems = document.querySelectorAll('.gallery-hidden');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            
+            if (!isGalleryExpanded) {
+                // Show loading
+                loadMoreBtn.innerHTML = '⏳ Memuat...';
+                loadMoreBtn.disabled = true;
                 
-                // Close menu first
-                closeMenu();
+                setTimeout(() => {
+                    hiddenItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.display = 'block';
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            
+                            setTimeout(() => {
+                                item.style.transition = 'all 0.5s ease';
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, index * 100);
+                    });
+                    
+                    loadMoreBtn.innerHTML = '📸 Sembunyikan Gambar';
+                    loadMoreBtn.disabled = false;
+                    isGalleryExpanded = true;
+                }, 800);
+            } else {
+                // Hide items
+                loadMoreBtn.innerHTML = '⏳ Menyembunyikan...';
+                loadMoreBtn.disabled = true;
                 
-                // Navigate to section
-                let targetElement;
-                switch(targetSection) {
-                    case 'home':
-                        targetElement = document.querySelector('section');
-                        break;
-                    case 'services':
-                        targetElement = sections[1];
-                        break;
-                    case 'portfolio':
-                        targetElement = sections[2];
-                        break;
-                    case 'contact':
-                        targetElement = sections[4];
-                        break;
-                }
-                
-                if (targetElement) {
+                hiddenItems.forEach((item, index) => {
                     setTimeout(() => {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('slide-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards for animation
-        document.querySelectorAll('.card-hover').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Portfolio Filter and Pagination Functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const prevPageBtn = document.getElementById('prevPage');
-        const nextPageBtn = document.getElementById('nextPage');
-        const pageButtons = document.querySelectorAll('.page-btn');
-        
-        let currentPage = 1;
-        let currentFilter = 'all';
-        const itemsPerPage = 3;
-
-        // Get filtered items based on current filter
-        function getFilteredItems() {
-            return Array.from(portfolioItems).filter(item => {
-                const categories = item.dataset.category.split(' ');
-                return currentFilter === 'all' || categories.includes(currentFilter);
-            });
-        }
-
-        // Update pagination visibility and buttons
-        function updatePagination() {
-            const filteredItems = getFilteredItems();
-            const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-            
-            // Show/hide pagination based on total pages
-            const paginationContainer = document.getElementById('portfolioPagination');
-            if (totalPages <= 1) {
-                paginationContainer.style.display = 'none';
-            } else {
-                paginationContainer.style.display = 'flex';
-            }
-            
-            // Update page buttons
-            const pageNumbersContainer = document.getElementById('pageNumbers');
-            pageNumbersContainer.innerHTML = '';
-            
-            for (let i = 1; i <= totalPages; i++) {
-                const pageBtn = document.createElement('button');
-                pageBtn.className = `page-btn px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    i === currentPage 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`;
-                pageBtn.textContent = i;
-                pageBtn.dataset.page = i;
-                pageBtn.addEventListener('click', () => goToPage(i));
-                pageNumbersContainer.appendChild(pageBtn);
-            }
-            
-            // Update prev/next buttons
-            prevPageBtn.disabled = currentPage === 1;
-            nextPageBtn.disabled = currentPage === totalPages;
-            
-            if (currentPage === 1) {
-                prevPageBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            } else {
-                prevPageBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
-            
-            if (currentPage === totalPages) {
-                nextPageBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            } else {
-                nextPageBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
-        }
-
-        // Show items for current page
-        function showCurrentPage() {
-            const filteredItems = getFilteredItems();
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            
-            // Hide all items first
-            portfolioItems.forEach(item => {
-                item.style.display = 'none';
-            });
-            
-            // Show items for current page
-            filteredItems.slice(startIndex, endIndex).forEach(item => {
-                item.style.display = 'block';
-                item.classList.add('slide-in');
-            });
-            
-            updatePagination();
-        }
-
-        // Go to specific page
-        function goToPage(page) {
-            currentPage = page;
-            showCurrentPage();
-        }
-
-        // Filter functionality
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.dataset.filter;
-                currentFilter = filter;
-                currentPage = 1; // Reset to first page when filtering
-                
-                // Update active button
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'text-white');
-                    b.classList.add('text-gray-600');
-                    b.style.backgroundColor = '';
-                });
-                btn.classList.add('active', 'text-white');
-                btn.classList.remove('text-gray-600');
-                btn.style.backgroundColor = '#365071';
-                
-                showCurrentPage();
-            });
-        });
-
-        // Pagination button events
-        prevPageBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                goToPage(currentPage - 1);
-            }
-        });
-
-        nextPageBtn.addEventListener('click', () => {
-            const filteredItems = getFilteredItems();
-            const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-            if (currentPage < totalPages) {
-                goToPage(currentPage + 1);
-            }
-        });
-
-        // Initialize pagination
-        showCurrentPage();
-
-        // Project Detail Modal Function
-        window.showProjectDetail = function(projectId) {
-            const projectDetails = {
-                socialmedia: {
-                    title: 'Design Social Media',
-                    description: 'Membuat 2 postingan bulanan Mobil Wuling dengan promo yang menarik di bulan September. Design dibuat khusus untuk meningkatkan engagement dan awareness brand Wuling dengan visual yang eye-catching dan informasi promo yang jelas.',
-                    images: [
-                        './image/design-andy-1.jpg',
-                        'https://via.placeholder.com/200x200/a47280/ffffff?text=Wuling+Post+2',
-                        'https://via.placeholder.com/200x200/6f414f/ffffff?text=Story+Design',
-                        'https://via.placeholder.com/200x200/a47280/ffffff?text=Promo+Banner'
-                    ]
-                },
-                logodesign: {
-                    title: 'Design Logo Peremajaan Brand',
-                    description: 'Membuat design logo sampai menu design untuk sebuah brand kecantikan yang memiliki layanan berupa Eyelash, Sulam Alis Dll. Peremajaan ke arah yang lebih modern dan lebih eye catchy dengan konsep minimalis namun tetap elegan.',
-                    images: [
-                        'https://via.placeholder.com/200x200/365071/ffffff?text=Logo+Before',
-                        'https://via.placeholder.com/200x200/6e7888/ffffff?text=Logo+After',
-                        'https://via.placeholder.com/200x200/365071/ffffff?text=Menu+Design',
-                        'https://via.placeholder.com/200x200/6e7888/ffffff?text=Brand+Guide'
-                    ]
-                }
-            };
-
-            const project = projectDetails[projectId];
-            if (project) {
-                // Show modal
-                const modal = document.getElementById('projectModal');
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                
-                // Populate modal content
-                document.getElementById('modalTitle').textContent = project.title;
-                document.getElementById('modalDescription').textContent = project.description;
-                
-                // Populate images gallery
-                const modalImages = document.getElementById('modalImages');
-                modalImages.innerHTML = '';
-                project.images.forEach(imageUrl => {
-                    const imageDiv = document.createElement('div');
-                    imageDiv.className = 'aspect-square rounded-lg overflow-hidden bg-gray-100';
-                    imageDiv.innerHTML = `
-                        <img src="${imageUrl}" alt="Project Image" class="w-full h-full object-cover" 
-                             onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="w-full h-full flex items-center justify-center bg-gray-200" style="display: none;">
-                            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                    `;
-                    modalImages.appendChild(imageDiv);
+                        item.style.transition = 'all 0.3s ease';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(-20px)';
+                        
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }, index * 50);
                 });
                 
-                // Set WhatsApp button action
-                document.getElementById('modalWhatsapp').onclick = function() {
-                    const message = encodeURIComponent(`Halo! Saya tertarik dengan project ${project.title}. Bisa diskusi untuk project serupa?`);
-                    window.open(`https://wa.me/6281234567890?text=${message}`, '_blank', 'noopener,noreferrer');
-                };
+                setTimeout(() => {
+                    loadMoreBtn.innerHTML = '📸 Lihat Lebih Banyak';
+                    loadMoreBtn.disabled = false;
+                    isGalleryExpanded = false;
+                }, 1000);
             }
-        };
+        }
 
-        // Modal close functionality
-        document.getElementById('closeModal').addEventListener('click', function() {
-            const modal = document.getElementById('projectModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        });
+        // Testimonial Functions
+        function showTestimonial(index) {
+            currentTestimonial = index;
+            const track = document.getElementById('testimonialTrack');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-blue-500');
+                } else {
+                    dot.classList.remove('bg-blue-500');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
 
-        // Close modal when clicking outside
-        document.getElementById('projectModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.add('hidden');
-                this.classList.remove('flex');
-            }
-        });
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % 2;
+            showTestimonial(currentTestimonial);
+        }
 
-        // Service Detail Modal Function
-        window.showServiceDetail = function(serviceId) {
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + 2) % 2;
+            showTestimonial(currentTestimonial);
+        }
+
+        function startTestimonialSlider() {
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % 2;
+                showTestimonial(currentTestimonial);
+            }, 6000);
+        }
+
+        // Touch/Swipe functionality for testimonials
+        function initTestimonialSwipe() {
+            const slider = document.getElementById('testimonialSlider');
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            // Touch events
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                currentX = e.touches[0].clientX;
+            });
+
+            slider.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const diffX = startX - currentX;
+                const threshold = 50; // Minimum swipe distance
+                
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0) {
+                        // Swipe left - next testimonial
+                        nextTestimonial();
+                    } else {
+                        // Swipe right - previous testimonial
+                        prevTestimonial();
+                    }
+                }
+            });
+
+            // Mouse events for desktop
+            slider.addEventListener('mousedown', (e) => {
+                startX = e.clientX;
+                isDragging = true;
+                slider.style.cursor = 'grabbing';
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                currentX = e.clientX;
+            });
+
+            slider.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                slider.style.cursor = 'grab';
+                
+                const diffX = startX - currentX;
+                const threshold = 50;
+                
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0) {
+                        nextTestimonial();
+                    } else {
+                        prevTestimonial();
+                    }
+                }
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDragging = false;
+                slider.style.cursor = 'grab';
+            });
+
+            // Set initial cursor
+            slider.style.cursor = 'grab';
+        }
+
+        // Service Modal Functions
+        function showServiceDetail(serviceId) {
+            currentServiceId = serviceId;
             const serviceDetails = {
                 website: {
                     title: 'Website Development',
                     description: 'Layanan pembuatan website profesional yang responsif, cepat, dan SEO-friendly. Kami menggunakan teknologi terkini untuk memastikan website Anda tampil optimal di semua perangkat dan mesin pencari.',
-                    image: 'https://via.placeholder.com/400x200/365071/ffffff?text=Website+Development',
                     packages: [
-                        { name: 'Basic', price: 'Rp 850.000', features: ['Landing Page', 'Responsive Design', 'Contact Form', '3 Revisi'] },
+                        { name: 'Basic', price: 'Tanya Untuk Harga', features: ['Landing Page', 'Responsive Design', 'Contact Form', '3 Revisi'] },
                         { name: 'Standard', price: 'Tanya Untuk Harga', features: ['Multi Page Website', 'CMS Integration', 'Basic SEO', 'Social Media Integration', '5 Revisi', 'SSL Certificate'] },
                         { name: 'Premium', price: 'Tanya Untuk Harga', features: ['E-commerce Ready', 'Custom Features', 'Performance Optimization', 'Analytics Setup', 'Unlimited Revisi', '6 Bulan Support'] }
                     ],
@@ -1215,17 +1267,14 @@
                         'Backup otomatis',
                         'Training penggunaan website'
                     ],
-                    timeline: '2-4 minggu tergantung kompleksitas project',
-                    gradient: 'from-blue-400 to-purple-500',
-                    icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9'
+                    timeline: '2-4 minggu tergantung kompleksitas project'
                 },
                 design: {
                     title: 'Design Postingan Social Media',
                     description: 'Layanan design postingan social media yang menarik dan profesional. Kenapa beda dari yang lain? Karena ini full design bukan template! Design 100% original sesuai dengan brand dan promo Anda.',
-                    image: 'https://via.placeholder.com/400x200/6f414f/ffffff?text=Social+Media+Design',
                     packages: [
-                        { name: '1 Design Post + Story', price: 'Rp 50.000', features: ['1 Design Post Size', '1 Design Story Size', 'Design 100% bukan template', '3x Revisi', 'File HD tidak pecah'] },
-                        { name: '3 Post + Story', price: 'Rp 100.000', features: ['3 Design Post Size', '3 Design Story Size', 'Design 100% bukan template', '3x Revisi per design', 'File HD tidak pecah', 'Konsep design konsisten'] }
+                        { name: '1 Design Post + Story', price: 'Tanya Untuk Harga', features: ['1 Design Post Size', '1 Design Story Size', 'Design 100% bukan template', '3x Revisi', 'File HD tidak pecah'] },
+                        { name: '3 Post + Story', price: 'Tanya Untuk Harga', features: ['3 Design Post Size', '3 Design Story Size', 'Design 100% bukan template', '3x Revisi per design', 'File HD tidak pecah', 'Konsep design konsisten'] }
                     ],
                     features: [
                         'Design 100% bukan template',
@@ -1237,19 +1286,16 @@
                         'Brand guideline sesuai bisnis',
                         'Support after sales'
                     ],
-                    timeline: '1-2 hari',
-                    gradient: 'from-purple-400 to-pink-500',
-                    icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+                    timeline: '1-2 hari'
                 },
                 ads: {
                     title: 'Ads Marketing',
                     description: 'Layanan digital marketing yang komprehensif untuk meningkatkan brand awareness dan penjualan. Kami mengelola kampanye iklan di berbagai platform dengan strategi yang tepat sasaran dan ROI tinggi.',
-                    image: 'https://via.placeholder.com/400x200/6e7888/ffffff?text=Ads+Marketing',
                     packages: [
-                        { name: 'Coba Coba', price: 'Rp 1.000.000/bulan', features: ['1 Platform Ads', 'Basic Targeting', 'Monthly Report'] },
-                        { name: 'Starter', price: 'Rp 3.000.000/bulan', features: ['1 Platform Ads', 'Basic Targeting', 'Monthly Report', 'Ad Creative Design', 'Budget Management'] },
-                        { name: 'Growth', price: 'Rp 6.000.000/bulan', features: ['Multi Platform Ads', 'Advanced Targeting', 'Bi-weekly Report', 'A/B Testing', 'Landing Page Optimization'] },
-                        { name: 'Scale', price: 'Rp 12.000.000/bulan', features: ['Full Marketing Funnel', 'Custom Audience', 'Weekly Report', 'Marketing Automation', 'Dedicated Account Manager'] }
+                        { name: 'Coba Coba', price: 'Tanya Untuk Harga', features: ['1 Platform Ads', 'Basic Targeting', 'Monthly Report'] },
+                        { name: 'Starter', price: 'Tanya Untuk Harga', features: ['1 Platform Ads', 'Basic Targeting', 'Monthly Report', 'Ad Creative Design', 'Budget Management'] },
+                        { name: 'Growth', price: 'Tanya Untuk Harga', features: ['Multi Platform Ads', 'Advanced Targeting', 'Bi-weekly Report', 'A/B Testing', 'Landing Page Optimization'] },
+                        { name: 'Scale', price: 'Tanya Untuk Harga', features: ['Full Marketing Funnel', 'Custom Audience', 'Weekly Report', 'Marketing Automation', 'Dedicated Account Manager'] }
                     ],
                     features: [
                         'Google Ads management',
@@ -1261,39 +1307,53 @@
                         'Performance monitoring',
                         'Monthly strategy review'
                     ],
-                    timeline: 'Setup 1 minggu, optimasi berkelanjutan',
-                    gradient: 'from-green-400 to-teal-500',
-                    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
+                    timeline: 'Setup 1 minggu, optimasi berkelanjutan'
                 }
             };
 
             const service = serviceDetails[serviceId];
             if (service) {
                 // Show modal
-                const modal = document.getElementById('serviceModal');
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
+                document.getElementById('serviceModal').classList.remove('hidden');
+                document.getElementById('serviceModal').classList.add('flex');
                 
-                // Populate modal content
+                // Set background image based on service
+                const serviceModalImage = document.getElementById('serviceModalImage');
+                const serviceModalImg = document.getElementById('serviceModalImg');
+                const serviceModalIcon = document.getElementById('serviceModalIcon');
+                
+                let backgroundImage = '';
+                let iconColor = '';
+                switch(serviceId) {
+                    case 'website':
+                        backgroundImage = 'img-web.jpg';
+                        iconColor = 'from-blue-600 to-blue-800';
+                        break;
+                    case 'design':
+                        backgroundImage = 'img-design.jpg';
+                        iconColor = 'from-purple-600 to-pink-600';
+                        break;
+                    case 'ads':
+                        backgroundImage = 'img-ads.jpg';
+                        iconColor = 'from-green-600 to-teal-600';
+                        break;
+                }
+                
+                // Set background image directly on the container with proper path
+                serviceModalImage.style.backgroundImage = `url('./image/${backgroundImage}')`;
+                serviceModalImage.style.backgroundSize = 'cover';
+                serviceModalImage.style.backgroundPosition = 'center';
+                serviceModalImage.style.backgroundRepeat = 'no-repeat';
+                
+                // Hide the img element and show fallback if needed
+                serviceModalImg.style.display = 'none';
+                serviceModalIcon.className = `w-full h-full bg-gradient-to-br ${iconColor} flex items-center justify-center`;
+                serviceModalIcon.style.display = 'none'; // Hide initially, show only if image fails
+                
+                // Populate content
                 document.getElementById('serviceModalTitle').textContent = service.title;
                 document.getElementById('serviceModalDescription').textContent = service.description;
                 document.getElementById('serviceModalTimeline').textContent = service.timeline;
-                
-                // Set modal image
-                const modalImage = document.getElementById('serviceModalImage');
-                const modalImg = document.getElementById('serviceModalImg');
-                const modalIcon = document.getElementById('serviceModalIcon');
-                
-                if (service.image) {
-                    modalImg.src = service.image;
-                    modalImg.style.display = 'block';
-                    modalIcon.style.display = 'none';
-                } else {
-                    modalImg.style.display = 'none';
-                    modalIcon.style.display = 'flex';
-                    modalImage.className = `h-48 rounded-xl mb-6 overflow-hidden bg-gradient-to-br ${service.gradient}`;
-                    modalIcon.innerHTML = `<svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.icon}"></path></svg>`;
-                }
                 
                 // Populate packages
                 const packagesContainer = document.getElementById('serviceModalPackages');
@@ -1322,251 +1382,159 @@
                     featureItem.innerHTML = `<span class="text-green-500 mr-2">✓</span>${feature}`;
                     featuresContainer.appendChild(featureItem);
                 });
-                
-                // Set WhatsApp button action
-                document.getElementById('serviceModalWhatsapp').onclick = function() {
-                    let message = '';
-                    if (serviceId === 'website') {
-                        message = encodeURIComponent(`Halo Irfan! Saya tertarik dengan layanan Website Development. Bisa konsultasi gratis untuk project website saya?`);
-                    } else if (serviceId === 'design') {
-                        message = encodeURIComponent(`Halo Irfan! Saya tertarik dengan layanan Design Postingan Social Media. Bisa konsultasi untuk design postingan bisnis saya?`);
-                    } else if (serviceId === 'ads') {
-                        message = encodeURIComponent(`Halo Irfan! Saya tertarik dengan layanan Ads Marketing. Bisa konsultasi untuk strategi iklan bisnis saya?`);
-                    } else {
-                        message = encodeURIComponent(`Halo Irfan! Saya tertarik dengan layanan ${service.title}. Bisa konsultasi gratis?`);
-                    }
-                    window.open(`https://wa.me/6281234567890?text=${message}`, '_blank', 'noopener,noreferrer');
-                };
             }
-        };
+        }
 
-        // Service Modal close functionality
-        document.getElementById('closeServiceModal').addEventListener('click', function() {
-            const modal = document.getElementById('serviceModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        });
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+            document.getElementById('serviceModal').classList.remove('flex');
+        }
 
-        // Close service modal when clicking outside
-        document.getElementById('serviceModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.add('hidden');
-                this.classList.remove('flex');
-            }
-        });
-
-        // Initialize filter buttons styling
-        document.querySelector('.filter-btn.active').style.backgroundColor = '#365071';
-        document.querySelector('.filter-btn.active').classList.add('text-white');
-
-        // New Project Button
-        document.getElementById('newProjectBtn').addEventListener('click', () => {
-            const message = encodeURIComponent('Halo Irfan! Saya ingin memulai proyek baru. Bisa konsultasi gratis untuk menentukan solusi terbaik?');
-            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank', 'noopener,noreferrer');
-        });
-
-        // Floating Chat Widget Functionality
-        const floatingChatBtn = document.getElementById('floatingChatBtn');
-        const chatBubble = document.getElementById('chatBubble');
-        const whatsappMenu = document.getElementById('whatsappMenu');
-        const chatIcon = document.getElementById('chatIcon');
-        const closeIcon = document.getElementById('closeIcon');
-        let isMenuOpen = false;
-        let bubbleTimeout;
-
-        // Show chat bubble after 3 seconds
-        setTimeout(() => {
-            chatBubble.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-            chatBubble.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        // Chat Functions
+        function showChatBubble() {
+            const bubble = document.getElementById('chatBubble');
+            bubble.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            bubble.classList.add('opacity-100', 'translate-y-0');
             
-            // Hide bubble after 5 seconds
-            bubbleTimeout = setTimeout(() => {
-                chatBubble.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                chatBubble.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                bubble.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                bubble.classList.remove('opacity-100', 'translate-y-0');
             }, 5000);
-        }, 3000);
+        }
 
-        // Toggle menu function
         function toggleChatMenu() {
-            isMenuOpen = !isMenuOpen;
+            const menu = document.getElementById('whatsappMenu');
+            const bubble = document.getElementById('chatBubble');
+            const chatIcon = document.getElementById('chatIcon');
+            const closeIcon = document.getElementById('closeIcon');
             
-            if (isMenuOpen) {
-                // Show menu
-                whatsappMenu.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none', 'scale-95');
-                whatsappMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto', 'scale-100');
-                
-                // Hide bubble
-                chatBubble.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                chatBubble.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                clearTimeout(bubbleTimeout);
-                
-                // Switch icons
+            if (!isChatMenuOpen) {
+                // Open menu
+                menu.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none', 'scale-95');
+                menu.classList.add('opacity-100', 'translate-y-0', 'scale-100');
                 chatIcon.classList.add('opacity-0', 'scale-0');
                 closeIcon.classList.remove('opacity-0', 'scale-0');
                 closeIcon.classList.add('opacity-100', 'scale-100');
                 
-                // Change button color
-                floatingChatBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
-                floatingChatBtn.classList.add('bg-red-500', 'hover:bg-red-600');
-            } else {
-                // Hide menu
-                whatsappMenu.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none', 'scale-95');
-                whatsappMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto', 'scale-100');
+                // Hide bubble
+                bubble.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                bubble.classList.remove('opacity-100', 'translate-y-0');
                 
-                // Switch icons back
+                isChatMenuOpen = true;
+            } else {
+                // Close menu
+                menu.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none', 'scale-95');
+                menu.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
                 chatIcon.classList.remove('opacity-0', 'scale-0');
                 chatIcon.classList.add('opacity-100', 'scale-100');
                 closeIcon.classList.add('opacity-0', 'scale-0');
                 closeIcon.classList.remove('opacity-100', 'scale-100');
                 
-                // Change button color back
-                floatingChatBtn.classList.add('bg-green-500', 'hover:bg-green-600');
-                floatingChatBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
+                isChatMenuOpen = false;
             }
         }
 
-        // Chat button click handler
-        floatingChatBtn.addEventListener('click', toggleChatMenu);
-
-        // WhatsApp option click handlers
-        document.querySelectorAll('.whatsapp-option').forEach(option => {
-            option.addEventListener('click', () => {
-                const message = option.dataset.message;
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/6281234567890?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
-                
-                // Close menu after clicking
-                toggleChatMenu();
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const chatWidget = e.target.closest('#floatingChatBtn') || 
-                              e.target.closest('#whatsappMenu') || 
-                              e.target.closest('#chatBubble');
-            if (!chatWidget && isMenuOpen) {
-                toggleChatMenu();
+        // WhatsApp Functions
+        function openWhatsApp(type) {
+            let message = '';
+            switch(type) {
+                case 'general':
+                    message = 'Halo! Saya tertarik dengan layanan digital Anda. Bisa konsultasi gratis?';
+                    break;
+                case 'project':
+                    message = 'Halo Irfan! Saya ingin memulai proyek baru. Bisa konsultasi gratis untuk menentukan solusi terbaik?';
+                    break;
+                default:
+                    message = 'Halo! Saya tertarik dengan layanan Anda. Bisa konsultasi?';
             }
-        });
-
-        // Show bubble again when hovering over the button (if menu is closed)
-        floatingChatBtn.addEventListener('mouseenter', () => {
-            if (!isMenuOpen) {
-                clearTimeout(bubbleTimeout);
-                chatBubble.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                chatBubble.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-            }
-        });
-
-        floatingChatBtn.addEventListener('mouseleave', () => {
-            if (!isMenuOpen) {
-                bubbleTimeout = setTimeout(() => {
-                    chatBubble.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                    chatBubble.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                }, 2000);
-            }
-        });
-
-        // Language Switching Functionality
-        const translations = {
-            id: {
-                'hero-title': 'Hai Aku Irfan 👋',
-                'hero-desc': '8 Tahun di dunia Marketing, dan sekarang mau bantu kamu untuk perbagus Website • Design • Ads Marketing yang menghasilkan konversi tinggi untuk bisnis Anda',
-                'cta-btn': 'Mulai Konsultasi Gratis',
-                'social-media-design': 'Social Media Design',
-                'social-media-title': 'Design Social Media',
-                'social-media-desc': 'Membuat 2 postingan bulanan Mobil Wuling dengan promo yang menarik di bulan September',
-                'logo-design': 'Logo Design',
-                'logo-title': 'Design Logo Peremajaan Brand',
-                'logo-desc': 'Membuat design logo sampai menu design untuk sebuah brand kecantikan yang memiliki layanan berupa Eyelash, Sulam Alis Dll. Peremajaan ke arah yang lebih modern dan lebih eye catchy',
-                'detail-btn': 'Detail',
-                'discuss-similar': 'Diskusi Project Serupa',
-                'request-proposal': 'Minta Proposal Detail',
-                'testimonial-1': '"Keren design nya dan menarik"',
-                'testimonial-1-job': 'Supervisor Sales Otomotif',
-                'testimonial-2': '"Cocok untuk promosi, mantap pokoknya"',
-                'testimonial-2-job': 'Sales Otomotif',
-                'contact-title': 'Siap Memulai Proyek?',
-                'contact-desc': 'Konsultasi gratis untuk menentukan solusi terbaik bagi bisnis Anda',
-                'whatsapp-btn': 'Chat WhatsApp',
-                'email-btn': 'Email Konsultasi',
-                'chat-bubble-title': 'Konsultasi dengan Irfan',
-                'chat-bubble-time': 'Sekarang',
-                'chat-menu-name': 'Irfan - Digital Expert',
-                'chat-menu-status': 'Online sekarang',
-                'menu-website-title': 'Website Development',
-                'menu-website-desc': 'Konsultasi pembuatan website',
-                'menu-design-title': 'Design Social Media',
-                'menu-design-desc': 'Konsultasi design postingan',
-                'menu-ads-title': 'Ads Marketing',
-                'menu-ads-desc': 'Konsultasi strategi iklan',
-                'menu-general-title': 'Konsultasi Umum',
-                'menu-general-desc': 'Chat langsung dengan Irfan'
-            },
-            en: {
-                'hero-title': 'Hi, I\'m Irfan 👋',
-                'hero-desc': '8 Years in Marketing, and now I want to help you improve Website • Design • Ads Marketing that generates high conversions for your business',
-                'cta-btn': 'Start Free Consultation',
-                'social-media-design': 'Social Media Design',
-                'social-media-title': 'Social Media Design',
-                'social-media-desc': 'Creating 2 monthly posts for Wuling Car with attractive promotions in September',
-                'logo-design': 'Logo Design',
-                'logo-title': 'Brand Rejuvenation Logo Design',
-                'logo-desc': 'Creating logo design to menu design for a beauty brand that has services such as Eyelash, Eyebrow Embroidery, etc. Rejuvenation towards a more modern and eye-catching direction',
-                'detail-btn': 'Detail',
-                'discuss-similar': 'Discuss Similar Project',
-                'request-proposal': 'Request Detailed Proposal',
-                'testimonial-1': '"Cool design and attractive"',
-                'testimonial-1-job': 'Automotive Sales Supervisor',
-                'testimonial-2': '"Perfect for promotion, awesome indeed"',
-                'testimonial-2-job': 'Automotive Sales',
-                'contact-title': 'Ready to Start a Project?',
-                'contact-desc': 'Free consultation to determine the best solution for your business',
-                'whatsapp-btn': 'Chat WhatsApp',
-                'email-btn': 'Email Consultation',
-                'chat-bubble-title': 'Consultation with Irfan',
-                'chat-bubble-time': 'Now',
-                'chat-menu-name': 'Irfan - Digital Expert',
-                'chat-menu-status': 'Online now',
-                'menu-website-title': 'Website Development',
-                'menu-website-desc': 'Website development consultation',
-                'menu-design-title': 'Social Media Design',
-                'menu-design-desc': 'Post design consultation',
-                'menu-ads-title': 'Ads Marketing',
-                'menu-ads-desc': 'Advertising strategy consultation',
-                'menu-general-title': 'General Consultation',
-                'menu-general-desc': 'Chat directly with Irfan'
-            }
-        };
-
-        let currentLang = 'id';
-
-        function switchLanguage(lang) {
-            currentLang = lang;
             
-            // Update language buttons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-white', 'text-gray-800', 'shadow-sm');
-                btn.classList.add('text-gray-600');
-            });
-            
-            const activeBtn = document.getElementById(`lang${lang.charAt(0).toUpperCase() + lang.slice(1)}`);
-            activeBtn.classList.add('active', 'bg-white', 'text-gray-800', 'shadow-sm');
-            activeBtn.classList.remove('text-gray-600');
-            
-            // Update all text elements
-            document.querySelectorAll('[data-lang-id]').forEach(element => {
-                const key = element.getAttribute('data-lang-id');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/6281234567890?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
         }
 
-        // Language button event listeners
-        document.getElementById('langId').addEventListener('click', () => switchLanguage('id'));
-        document.getElementById('langEn').addEventListener('click', () => switchLanguage('en'));
+        function openWhatsAppOption(service) {
+            let message = '';
+            switch(service) {
+                case 'website':
+                    message = 'Halo Irfan! Saya tertarik dengan layanan Website Development. Bisa konsultasi gratis untuk project website saya?';
+                    break;
+                case 'design':
+                    message = 'Halo Irfan! Saya butuh bantuan untuk Design Postingan Social Media. Bisa konsultasi untuk design postingan bisnis saya?';
+                    break;
+                case 'ads':
+                    message = 'Halo Irfan! Saya ingin meningkatkan penjualan dengan Ads Marketing. Bisa konsultasi untuk strategi iklan bisnis saya?';
+                    break;
+                case 'general':
+                    message = 'Halo Irfan! Saya mau konsultasi gratis untuk project digital saya. Kapan bisa chat?';
+                    break;
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/6281234567890?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
+            
+            // Close chat menu
+            toggleChatMenu();
+        }
+
+        function openWhatsAppService() {
+            let message = '';
+            switch(currentServiceId) {
+                case 'website':
+                    message = 'Halo Irfan! Saya tertarik dengan layanan Website Development. Bisa konsultasi gratis untuk project website saya?';
+                    break;
+                case 'design':
+                    message = 'Halo Irfan! Saya tertarik dengan layanan Design Postingan Social Media. Bisa konsultasi untuk design postingan bisnis saya?';
+                    break;
+                case 'ads':
+                    message = 'Halo Irfan! Saya tertarik dengan layanan Ads Marketing. Bisa konsultasi untuk strategi iklan bisnis saya?';
+                    break;
+                default:
+                    message = 'Halo Irfan! Saya tertarik dengan layanan Anda. Bisa konsultasi gratis?';
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/6281234567890?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function openEmail() {
+            window.open('mailto:irfan@example.com?subject=Konsultasi Layanan Digital', '_blank', 'noopener,noreferrer');
+        }
+
+        // Close modals when clicking outside
+        document.getElementById('serviceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeServiceModal();
+            }
+        });
+
+        // Website Example Functions
+        function viewWebsiteExample(type) {
+            let message = '';
+            switch(type) {
+                case 'otomotif':
+                    message = 'Halo Irfan! Saya tertarik dengan contoh Web Otomotif. Bisa lihat demo lengkapnya dan konsultasi untuk website showroom mobil?';
+                    break;
+                case 'property':
+                    message = 'Halo Irfan! Saya tertarik dengan contoh Web Property. Bisa lihat demo lengkapnya dan konsultasi untuk website properti?';
+                    break;
+                default:
+                    message = 'Halo Irfan! Saya ingin melihat contoh website yang sudah dibuat. Bisa konsultasi?';
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/6281234567890?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
+        }
+
+        // Close chat menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const chatBtn = document.getElementById('floatingChatBtn');
+            const chatMenu = document.getElementById('whatsappMenu');
+            
+            if (isChatMenuOpen && !chatBtn.contains(e.target) && !chatMenu.contains(e.target)) {
+                toggleChatMenu();
+            }
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982f10c4415d8194',t:'MTc1ODUxNTQxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982fb4b43614f90e',t:'MTc1ODUyMjEyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
