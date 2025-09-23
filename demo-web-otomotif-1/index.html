@@ -940,57 +940,77 @@
                 buttonElement.classList.add('ring-2', 'ring-primary', 'border-primary');
             }
             
-            document.getElementById('selectedColorName').textContent = colorName;
+            const selectedColorNameEl = document.getElementById('selectedColorName');
+            if (selectedColorNameEl) {
+                selectedColorNameEl.textContent = colorName;
+            }
             
             // Update car image based on color for different models
             const modalCarImg = document.getElementById('modalCarImg');
             
-            if (currentCar.name === 'Wuling Air EV') {
-                const colorImageMap = {
-                    'Pristine White': './image/airev-Pristine_White.png',
-                    'Avocado Green': './image/airev-Avocado_Green.png',
-                    'Lemon Yellow': './image/airev-Lemon_Yellow.png',
-                    'Peach Pink': './image/airev-Peach_Pink.png',
-                    'Galaxy Blue': './image/airev-Galaxy_Blue.png',
-                    'Starry Black': './image/airev-Starry_Black.png'
-                };
-                
-                if (colorImageMap[colorName]) {
-                    modalCarImg.src = colorImageMap[colorName];
-                    modalCarImg.alt = `Wuling Air EV ${colorName}`;
-                }
-            } else if (currentCar.name === 'Wuling Binguo EV') {
-                const colorImageMap = {
-                    'Avocado Green': './image/binguo-Avocado_Green.png',
-                    'Lemon Yellow': './image/binguo-Lemon_Yellow.png',
-                    'Milk Tea': './image/binguo-Milk_Tea.png',
-                    'Galaxy Blue': './image/binguo-Galaxy_Blue.png',
-                    'Tungsten Steel Grey': './image/binguo-Tungsten_Steel_Grey.png',
-                    'Starry Black': './image/binguo-Starry_Black.png'
-                };
-                
-                if (colorImageMap[colorName]) {
-                    modalCarImg.src = colorImageMap[colorName];
-                    modalCarImg.alt = `Wuling Binguo EV ${colorName}`;
-                }
-            } else if (currentCar.name === 'Wuling Cloud EV') {
-                const colorImageMap = {
-                    'Pristine White': './image/cloud-Pristine_White.png',
-                    'Aurora Silver': './image/cloud-Aurora_Silver.png',
-                    'Milk Tea': './image/cloud-Milk_Tea.png',
-                    'Tungsten Grey': './image/cloud-Tungsten_Grey.png',
-                    'Starry Black': './image/cloud-Starry_Black.png'
-                };
-                
-                if (colorImageMap[colorName]) {
-                    modalCarImg.src = colorImageMap[colorName];
-                    modalCarImg.alt = `Wuling Cloud EV ${colorName}`;
+            if (modalCarImg && currentCar && currentCar.name) {
+                if (currentCar.name === 'Wuling Air EV') {
+                    const colorImageMap = {
+                        'Pristine White': './image/airev-Pristine_White.png',
+                        'Avocado Green': './image/airev-Avocado_Green.png',
+                        'Lemon Yellow': './image/airev-Lemon_Yellow.png',
+                        'Peach Pink': './image/airev-Peach_Pink.png',
+                        'Galaxy Blue': './image/airev-Galaxy_Blue.png',
+                        'Starry Black': './image/airev-Starry_Black.png'
+                    };
+                    
+                    if (colorImageMap[colorName]) {
+                        modalCarImg.src = colorImageMap[colorName];
+                        modalCarImg.alt = `Wuling Air EV ${colorName}`;
+                    }
+                } else if (currentCar.name === 'Wuling Binguo EV') {
+                    const colorImageMap = {
+                        'Avocado Green': './image/binguo-AvocadoGreen.png',
+                        'Lemon Yellow': './image/binguo-LemonYellow.png',
+                        'Milk Tea': './image/binguo-MilkTea.png',
+                        'Galaxy Blue': './image/binguo-GalaxyBlue.png',
+                        'Tungsten Steel Grey': './image/binguo-TungstenSteelGrey.png',
+                        'Starry Black': './image/binguo-Pro-StarryBlack.png'
+                    };
+                    
+                    if (colorImageMap[colorName]) {
+                        modalCarImg.src = colorImageMap[colorName];
+                        modalCarImg.alt = `Wuling Binguo EV ${colorName}`;
+                    }
+                } else if (currentCar.name === 'Wuling Cloud EV') {
+                    const colorImageMap = {
+                        'Pristine White': './image/cloud-PRISTINE_WHITE.png',
+                        'Aurora Silver': './image/cloud-AURORA_SILVER.png',
+                        'Milk Tea': './image/cloud-MILK_TEA.png',
+                        'Tungsten Grey': './image/cloud-TUNGSTEN_GREY.png',
+                        'Starry Black': './image/cloud-STARRY_BLACK.png'
+                    };
+                    
+                    if (colorImageMap[colorName]) {
+                        modalCarImg.src = colorImageMap[colorName];
+                        modalCarImg.alt = `Wuling Cloud EV ${colorName}`;
+                    }
+                } else if (currentCar.name === 'Wuling Alvez') {
+                    const colorImageMap = {
+                        'Pristine White': './image/alvez-pristine-white.png',
+                        'Aurora Silver': './image/alvez-silver-aurora.png',
+                        'Tungsten Grey': './image/alvez-tungstan-steel.png',
+                        'Starry Black': './image/alvez-starry-black.png',
+                        'Carnelian Red': './image/alvez-red-final.png'
+                    };
+                    
+                    if (colorImageMap[colorName]) {
+                        modalCarImg.src = colorImageMap[colorName];
+                        modalCarImg.alt = `Wuling Alvez ${colorName}`;
+                    }
                 }
             }
             
             // Update car image color (simulate for other cars)
             const carImage = document.getElementById('modalCarImage');
-            carImage.style.backgroundColor = colorCode;
+            if (carImage) {
+                carImage.style.backgroundColor = colorCode;
+            }
         }
         
         function updateSpecs() {
@@ -1150,5 +1170,5 @@ Mohon dibuatkan simulasinya ya. Terima kasih!`;
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983c4a9cd7063d7d',t:'MTc1ODY1NDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983c5452c0f0cb36',t:'MTc1ODY1NDQ5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
