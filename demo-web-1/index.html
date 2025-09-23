@@ -1,9 +1,1034 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Example</title>
-    </head>
-    <body>
-        <p>This is an example of a simple HTML page with one paragraph.</p>
-    </body>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NamaMobilKamu.com - Dealer Mobil Terpercaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#647FBC',
+                        secondary: '#91ADC8',
+                        accent: '#AED6CF',
+                        light: '#FAFDD6',
+                        white: '#FFFFFF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .frosted {
+            backdrop-filter: blur(10px);
+            background: rgba(100, 127, 188, 0.8);
+        }
+        .card-slider {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .card-slider::-webkit-scrollbar {
+            display: none;
+        }
+        .card-item {
+            scroll-snap-align: start;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
+        }
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 18s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-primary to-secondary min-h-screen">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-white font-bold text-xl">Lagi Cari Wuling</div>
+            <nav class="hidden md:flex space-x-6 text-white">
+                <a href="#hero" class="hover:text-light transition-colors">Beranda</a>
+                <a href="#promo" class="hover:text-light transition-colors">Promo</a>
+                <a href="#produk" class="hover:text-light transition-colors">Produk</a>
+                <a href="#kontak" class="hover:text-light transition-colors">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-primary via-secondary to-accent">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center">
+                    <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Halo, Saya Coco Irfan</h1>
+                <p class="text-xl md:text-2xl mb-6">Sales Consultant Terpercaya</p>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Siap membantu Anda menemukan mobil impian dengan pelayanan terbaik dan harga yang kompetitif</p>
+            </div>
+            <div class="animate-bounce">
+                <p class="text-lg mb-2">Scroll untuk melihat</p>
+                <p class="text-2xl font-bold text-light">PROMO BULAN INI</p>
+                <svg class="w-8 h-8 mx-auto mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Running Text Promo -->
+    <div class="w-full overflow-hidden border-y border-gray-200 bg-white/80 backdrop-blur-sm">
+        <div class="animate-marquee whitespace-nowrap py-3 text-sm">
+            <span class="inline-flex items-center gap-2 mx-6">
+                <span class="text-red-500">🎯</span>
+                <b class="text-primary">OCTOFEST: DP Ringan Mulai 10 Juta</b>
+                <span class="text-gray-500">Berlaku s/d 31 Okt 2025 • S&K berlaku</span>
+                <span class="text-primary">→</span>
+            </span>
+            <span class="inline-flex items-center gap-2 mx-6">
+                <span class="text-green-500">⚡</span>
+                <b class="text-primary">Gratis Home Charging Device (EV)</b>
+                <span class="text-gray-500">Untuk pembelian Binguo/Air ev tertentu</span>
+                <span class="text-primary">→</span>
+            </span>
+            <span class="inline-flex items-center gap-2 mx-6">
+                <span class="text-blue-500">🎁</span>
+                <b class="text-primary">Dapatkan Free Maintenance & Lifetime Warranty</b>
+                <span class="text-gray-500">untuk unit EV</span>
+                <span class="text-primary">→</span>
+            </span>
+            <span class="inline-flex items-center gap-2 mx-6">
+                <span class="text-red-500">🎯</span>
+                <b class="text-primary">OCTOFEST: DP Ringan Mulai 10 Juta</b>
+                <span class="text-gray-500">Berlaku s/d 31 Okt 2025 • S&K berlaku</span>
+                <span class="text-primary">→</span>
+            </span>
+            <span class="inline-flex items-center gap-2 mx-6">
+                <span class="text-green-500">⚡</span>
+                <b class="text-primary">Gratis Home Charging Device (EV)</b>
+                <span class="text-gray-500">Untuk pembelian Binguo/Air ev tertentu</span>
+                <span class="text-primary">→</span>
+            </span>
+            <span class="inline-flex items-center gap-2 mx-6">
+                <span class="text-blue-500">🎁</span>
+                <b class="text-primary">Dapatkan Free Maintenance & Lifetime Warranty</b>
+                <span class="text-gray-500">untuk unit EV</span>
+                <span class="text-primary">→</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Promo Section -->
+    <section id="promo" class="min-h-screen flex items-center px-4 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">Promo Bulan Ini</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="aspect-square bg-white rounded-2xl shadow-2xl flex items-center justify-center">
+                    <svg class="w-48 h-48 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                        <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                    </svg>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary mb-6">DP Mulai 10 Juta!</h3>
+                    <p class="text-lg text-gray-700 mb-6">Dapatkan mobil impian Anda dengan DP super ringan. Promo terbatas hanya bulan ini!</p>
+                    <ul class="text-left text-gray-700 mb-8 space-y-2">
+                        <li>✅ Bunga 0% untuk 1 tahun</li>
+                        <li>✅ Pasti Lebih Murah</li>
+                        <li>✅ Gratis perawatan up to 4 tahun</li>
+                        <li>✅ Trade-in dengan harga terbaik</li>
+                    </ul>
+                    <button onclick="openWhatsApp('Halo, saya tertarik dengan promo DP 10 juta. Bisa info lebih lanjut?')" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                        💬 Chat WhatsApp Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Section -->
+    <section id="produk" class="min-h-screen py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">Produk Kami</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="filterCars('all')" class="filter-btn bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary transition-all active">Semua</button>
+                <button onclick="filterCars('suv')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all">SUV</button>
+                <button onclick="filterCars('mpv')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all">MPV</button>
+                <button onclick="filterCars('citycar')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all">City Car</button>
+                <button onclick="filterCars('ev')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all">EV</button>
+            </div>
+
+            <!-- Car Cards Slider -->
+            <div class="relative">
+                <button onclick="slideLeft()" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary p-2 rounded-full shadow-lg transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="slideRight()" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary p-2 rounded-full shadow-lg transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <div class="card-slider flex gap-6 overflow-x-auto pb-4 scroll-smooth" id="carSlider">
+                <!-- Air EV -->
+                <div class="card-item min-w-80 bg-gray-50 rounded-2xl shadow-xl overflow-hidden car-card" data-category="citycar ev">
+                    <div class="aspect-video bg-gray-200 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Wuling Air EV</h3>
+                        <p class="text-gray-600 mb-4">City Car • EV</p>
+                        <p class="text-2xl font-bold text-primary mb-4">Start Rp 184 Jutaan*</p>
+                        <button onclick="openCarModal('Wuling Air EV', 'City Car • EV', 'Electric Vehicle', 'air-ev')" class="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-semibold transition-all">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Binguo EV -->
+                <div class="card-item min-w-80 bg-gray-50 rounded-2xl shadow-xl overflow-hidden car-card" data-category="citycar ev">
+                    <div class="aspect-video bg-gray-200 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Wuling Binguo EV</h3>
+                        <p class="text-gray-600 mb-4">City Car • EV</p>
+                        <p class="text-2xl font-bold text-primary mb-4">Start Rp 279 Jutaan*</p>
+                        <button onclick="openCarModal('Wuling Binguo EV', 'City Car • EV', 'Electric Vehicle', 'binguo-ev')" class="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-semibold transition-all">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cloud EV -->
+                <div class="card-item min-w-80 bg-gray-50 rounded-2xl shadow-xl overflow-hidden car-card" data-category="mpv ev">
+                    <div class="aspect-video bg-gray-200 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Wuling Cloud EV</h3>
+                        <p class="text-gray-600 mb-4">MPV • EV</p>
+                        <p class="text-2xl font-bold text-primary mb-4">Start Rp 404 Jutaan*</p>
+                        <button onclick="openCarModal('Wuling Cloud EV', 'MPV • EV', 'Electric Vehicle', 'cloud-ev')" class="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-semibold transition-all">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Alvez SUV -->
+                <div class="card-item min-w-80 bg-gray-50 rounded-2xl shadow-xl overflow-hidden car-card" data-category="suv">
+                    <div class="aspect-video bg-gray-200 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Wuling Alvez</h3>
+                        <p class="text-gray-600 mb-4">SUV</p>
+                        <p class="text-2xl font-bold text-primary mb-4">Start Rp 217 Jutaan*</p>
+                        <button onclick="openCarModal('Wuling Alvez', 'SUV', 'Gasoline Engine', 'alvez')" class="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-semibold transition-all">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mitra EV -->
+                <div class="card-item min-w-80 bg-gray-50 rounded-2xl shadow-xl overflow-hidden car-card" data-category="mpv ev">
+                    <div class="aspect-video bg-gray-200 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Wuling Mitra EV</h3>
+                        <p class="text-gray-600 mb-4">Mini Bus • Komersil</p>
+                        <p class="text-2xl font-bold text-primary mb-4">Start Rp 328 Jutaan*</p>
+                        <button onclick="openCarModal('Wuling Mitra EV', 'Mini Bus • Komersil', 'Electric Vehicle', 'mitra-ev')" class="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-semibold transition-all">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Detail Modal -->
+    <div id="carModal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto">
+        <div class="min-h-screen">
+            <!-- Header -->
+            <div class="sticky top-0 bg-white border-b border-gray-200 z-10 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="closeCarModal()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    <h3 class="text-2xl font-bold text-primary" id="modalCarName">Toyota Fortuner</h3>
+                    <div class="w-6"></div>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="p-6">
+                
+                <!-- Car Image -->
+                <div class="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center" id="modalCarImage">
+                    <svg class="w-32 h-32 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                        <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+                    </svg>
+                </div>
+
+                <!-- Variant Selection -->
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-3">Pilih Varian:</h4>
+                    <div class="flex gap-2 flex-wrap" id="variantButtons">
+                        <!-- Variants will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Color Selection -->
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-3">Pilih Warna:</h4>
+                    <div class="flex gap-3 flex-wrap" id="colorOptions">
+                        <!-- Colors will be populated by JavaScript -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2" id="selectedColorName">Pilih warna</p>
+                </div>
+
+                <!-- Car Info -->
+                <div class="mb-6">
+                    <p class="text-lg text-gray-600 mb-2" id="modalCarType">City Car • EV</p>
+                    <div class="bg-gray-50 rounded-lg p-4" id="carSpecs">
+                        <!-- Specifications will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <button onclick="contactWhatsAppFromModal()" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-all">
+                    💬 Konsultasi via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivering Joy Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-light to-accent">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">Delivering Joy</h2>
+            <div class="gallery-grid mb-8" id="gallery">
+                <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center">
+                    <span class="text-primary text-4xl">📸</span>
+                </div>
+                <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center">
+                    <span class="text-primary text-4xl">🚗</span>
+                </div>
+                <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center">
+                    <span class="text-primary text-4xl">🏠</span>
+                </div>
+                <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center">
+                    <span class="text-primary text-4xl">🎉</span>
+                </div>
+                <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center hidden gallery-extra">
+                    <span class="text-primary text-4xl">👨‍👩‍👧‍👦</span>
+                </div>
+                <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center hidden gallery-extra">
+                    <span class="text-primary text-4xl">🔑</span>
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="toggleGallery()" id="galleryToggle" class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-full font-semibold transition-all">
+                    Lihat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="kontak" class="py-16 px-4 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Jangan Sampai Ketinggalan Kebahagiaan!</h2>
+            <p class="text-xl mb-8">Yuk langsung tanya Irfan dan dapatkan promo menarik serta hitungan kredit terbaik dari saya</p>
+            <button onclick="openWhatsApp('Halo, saya ingin konsultasi tentang pembelian mobil. Bisa dibantu?')" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                💬 Konsultasi Sekarang
+            </button>
+        </div>
+    </section>
+
+    <!-- Simulation Form Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-accent to-light">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-primary mb-12">Minta Simulasi</h2>
+            <form id="simulationForm" class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="grid gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Nama Lengkap</label>
+                        <input type="text" id="nama" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Alamat Domisili KTP</label>
+                        <textarea id="alamat" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Nomor Telepon</label>
+                        <input type="tel" id="telepon" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Pilih Unit</label>
+                        <select id="unit" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="">Pilih Mobil</option>
+                            <option value="Wuling Air EV">Wuling Air EV</option>
+                            <option value="Wuling Binguo EV">Wuling Binguo EV</option>
+                            <option value="Wuling Cloud EV">Wuling Cloud EV</option>
+                            <option value="Wuling Alvez">Wuling Alvez</option>
+                            <option value="Wuling Mitra EV">Wuling Mitra EV</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Rencana Pembelian</label>
+                        <select id="pembelian" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="">Pilih Metode</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Kredit">Kredit</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Rencana DP (Juta Rupiah)</label>
+                        <input type="number" id="dp" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Contoh: 50">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Tenor (Tahun)</label>
+                        <select id="tenor" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="">Pilih Tenor</option>
+                            <option value="1">1 Tahun</option>
+                            <option value="2">2 Tahun</option>
+                            <option value="3">3 Tahun</option>
+                            <option value="4">4 Tahun</option>
+                            <option value="5">5 Tahun</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full mt-8 bg-primary hover:bg-secondary text-white py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+                    Minta Simulasi Sekarang
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Coco Irfan Wuling</h3>
+            <p class="text-lg mb-6">Sales Consultant Terpercaya</p>
+            <div class="space-y-2 mb-8">
+                <p>📱 <a href="tel:085178087988" class="hover:text-light">085178087988</a></p>
+                <p>📧 <a href="mailto:irfan.mimosawuling@gmail.com" class="hover:text-light">irfan.mimosawuling@gmail.com</a></p>
+                <p>📍 Jabodetabek, Indonesia</p>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-2xl hover:text-light transition-colors">📘</a>
+                <a href="#" class="text-2xl hover:text-light transition-colors">📷</a>
+                <a href="#" class="text-2xl hover:text-light transition-colors">🐦</a>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/20">
+                <p>&copy; 2025 Lagi Cari Wuling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 md:hidden">
+        <div class="flex justify-around py-2">
+            <a href="#hero" class="flex flex-col items-center py-2 px-3 text-xs text-gray-600 hover:text-primary transition-colors">
+                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <span>Beranda</span>
+            </a>
+            <a href="#promo" class="flex flex-col items-center py-2 px-3 text-xs text-gray-600 hover:text-primary transition-colors">
+                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                </svg>
+                <span>Promo</span>
+            </a>
+            <a href="#produk" class="flex flex-col items-center py-2 px-3 text-xs text-gray-600 hover:text-primary transition-colors">
+                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+                <span>Produk</span>
+            </a>
+            <button onclick="openWhatsApp('Halo, saya ingin bertanya tentang mobil yang tersedia')" class="flex flex-col items-center py-2 px-3 text-xs text-green-600 hover:text-green-700 transition-colors">
+                <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                </svg>
+                <span>Chat</span>
+            </button>
+            <a href="#kontak" class="flex flex-col items-center py-2 px-3 text-xs text-gray-600 hover:text-primary transition-colors">
+                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <span>Kontak</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <div class="fixed bottom-20 right-6 z-50 md:bottom-6">
+        <div class="relative">
+            <div id="whatsappBubble" class="absolute bottom-16 right-0 bg-white rounded-lg shadow-lg p-3 mb-2 max-w-48 hidden">
+                <p class="text-sm text-gray-700">Yuk Tanya Tanya dulu...</p>
+                <div class="absolute bottom-0 right-4 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white transform translate-y-full"></div>
+            </div>
+            <button onclick="openWhatsApp('Halo, saya ingin bertanya tentang mobil yang tersedia')" onmouseenter="showBubble()" onmouseleave="hideBubble()" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('frosted');
+            } else {
+                header.classList.remove('frosted');
+            }
+        });
+
+        // Car filtering
+        function filterCars(category) {
+            const cards = document.querySelectorAll('.car-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'active');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-primary', 'text-white', 'active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Car data
+        const carData = {
+            'air-ev': {
+                name: 'Wuling Air EV',
+                type: 'City Car • EV',
+                variants: {
+                    'Lite 200': {
+                        colors: {
+                            'Pristine White': '#f0d7cc',
+                            'Avocado Green': '#acc4b4',
+                            'Lemon Yellow': '#ffd35d',
+                            'Peach Pink': '#efd7cc',
+                            'Galaxy Blue': '#cfd9ea',
+                            'Starry Black': '#303030'
+                        },
+                        specs: {
+                            'Battery capacity': '17.3 kWh',
+                            'Range': 'Up To 200 Km',
+                            'Port Charging': 'GB/T',
+                            'AC Charging (20%-100%)': '± 10 jam'
+                        }
+                    },
+                    'Lite 300': {
+                        colors: {
+                            'Pristine White': '#f0d7cc',
+                            'Avocado Green': '#acc4b4',
+                            'Lemon Yellow': '#ffd35d',
+                            'Peach Pink': '#efd7cc',
+                            'Galaxy Blue': '#cfd9ea',
+                            'Starry Black': '#303030'
+                        },
+                        specs: {
+                            'Battery capacity': '17.3 kWh',
+                            'Range': 'Up To 200 Km',
+                            'Port Charging': 'GB/T',
+                            'AC Charging (20%-100%)': '± 10 jam'
+                        }
+                    },
+                    'Pro 300': {
+                        colors: {
+                            'Pristine White': '#f0d7cc',
+                            'Avocado Green': '#acc4b4',
+                            'Lemon Yellow': '#ffd35d',
+                            'Peach Pink': '#efd7cc',
+                            'Galaxy Blue': '#cfd9ea',
+                            'Starry Black': '#303030'
+                        },
+                        specs: {
+                            'Battery capacity': '26.7 kWh',
+                            'Range': 'Up To 300 Km',
+                            'Port Charging': 'GB/T',
+                            'AC Charging (20%-100%)': '± 5.5 jam (max 6.6kw)'
+                        }
+                    }
+                }
+            },
+            'binguo-ev': {
+                name: 'Wuling Binguo EV',
+                type: 'City Car • EV',
+                variants: {
+                    'Lite': {
+                        colors: {
+                            'Avocado Green': '#adc4b5',
+                            'Lemon Yellow': '#ffd35c',
+                            'Milk Tea': '#e6e1d5',
+                            'Galaxy Blue': '#ccd6eb',
+                            'Tungsten Steel Grey': '#757271',
+                            'Starry Black': '#030003'
+                        },
+                        specs: {
+                            'Battery capacity': '31.9 kWh',
+                            'Range': 'Up To 333 Km',
+                            'Port Charging': 'CCS2',
+                            'AC Charging (20%-100%)': '± 5.5 jam',
+                            'Fast DC Charging (30%-80%)': '± 35 menit',
+                            'Lights': 'Halogen',
+                            'Seat': 'Fabric',
+                            'Adjust Driver Seat': 'Manual'
+                        }
+                    },
+                    'Pro': {
+                        colors: {
+                            'Avocado Green': '#adc4b5',
+                            'Lemon Yellow': '#ffd35c',
+                            'Milk Tea': '#e6e1d5',
+                            'Galaxy Blue': '#ccd6eb',
+                            'Tungsten Steel Grey': '#757271',
+                            'Starry Black': '#030003'
+                        },
+                        specs: {
+                            'Battery capacity': '31.9 kWh',
+                            'Range': 'Up To 333 Km',
+                            'Port Charging': 'CCS2',
+                            'AC Charging (20%-100%)': '± 5.5 jam',
+                            'Fast DC Charging (30%-80%)': '± 35 menit',
+                            'Lights': 'X-shaped LED',
+                            'Seat': 'Syntetic Leather',
+                            'Adjust Driver Seat': 'Electric'
+                        }
+                    }
+                }
+            },
+            'cloud-ev': {
+                name: 'Wuling Cloud EV',
+                type: 'MPV • EV',
+                variants: {
+                    'Lite': {
+                        colors: {
+                            'Pristine White': '#ffffff',
+                            'Aurora Silver': '#e6e1d5',
+                            'Milk Tea': '#434343',
+                            'Tungsten Grey': '#8f8f8f',
+                            'Starry Black': '#020002'
+                        },
+                        specs: {
+                            'Battery capacity': '50.6 kWh',
+                            'Range': 'Up To 460 Km',
+                            'Port Charging': 'CCS2',
+                            'AC Charging (20%-100%)': '± 7 jam',
+                            'Fast DC Charging (30%-80%)': '± 30 menit',
+                            'Intelligent Control Panel': '10.1" TFT',
+                            'Seat': 'Fabric',
+                            'Adjust Driver Seat': 'Manual'
+                        }
+                    },
+                    'Pro': {
+                        colors: {
+                            'Pristine White': '#ffffff',
+                            'Aurora Silver': '#e6e1d5',
+                            'Milk Tea': '#434343',
+                            'Tungsten Grey': '#8f8f8f',
+                            'Starry Black': '#020002'
+                        },
+                        specs: {
+                            'Battery capacity': '50.6 kWh',
+                            'Range': 'Up To 460 Km',
+                            'Port Charging': 'CCS2',
+                            'AC Charging (20%-100%)': '± 7 jam',
+                            'Fast DC Charging (30%-80%)': '± 30 menit',
+                            'Sensor Pintar': 'ADAS',
+                            'Intelligent Control Panel': '15.6" TFT',
+                            'Seat': 'Italian-style Bubble Seat',
+                            'Adjust Driver Seat': 'Electric'
+                        }
+                    }
+                }
+            },
+            'alvez': {
+                name: 'Wuling Alvez',
+                type: 'SUV',
+                variants: {
+                    'SE': {
+                        colors: {
+                            'Pristine White': '#ffffff',
+                            'Aurora Silver': '#e6e1d5',
+                            'Tungsten Grey': '#8f8f8f',
+                            'Starry Black': '#020002',
+                            'Carnelian Red': '#bf0000'
+                        },
+                        specs: {
+                            'Mesin': '1,485cc',
+                            'Tenaga': '105HP, 143 Nm',
+                            'Tangki': '45L',
+                            'Transmisi': '6-speed Manual',
+                            'Seat': 'Fabric',
+                            'Gerak Roda': 'Front Wheel Drive',
+                            'Lampu': 'Halogen'
+                        }
+                    },
+                    'CE': {
+                        colors: {
+                            'Pristine White': '#ffffff',
+                            'Aurora Silver': '#e6e1d5',
+                            'Tungsten Grey': '#8f8f8f',
+                            'Starry Black': '#020002',
+                            'Carnelian Red': '#bf0000'
+                        },
+                        specs: {
+                            'Mesin': '1,485cc',
+                            'Tenaga': '105HP, 143 Nm',
+                            'Tangki': '45L',
+                            'Transmisi': 'CVT',
+                            'Seat': 'Fabric',
+                            'Gerak Roda': 'Front Wheel Drive',
+                            'Velg': 'Machined alloy',
+                            'Lampu': 'Halogen',
+                            'Wiper': 'Depan + Belakang',
+                            'Head Unit': '10.25"',
+                            'Kamera': 'Kamera Belakang + Sensor parkir'
+                        }
+                    },
+                    'EX': {
+                        colors: {
+                            'Pristine White': '#ffffff',
+                            'Aurora Silver': '#e6e1d5',
+                            'Tungsten Grey': '#8f8f8f',
+                            'Starry Black': '#020002',
+                            'Carnelian Red': '#bf0000'
+                        },
+                        specs: {
+                            'Mesin': '1,485cc',
+                            'Tenaga': '105HP, 143 Nm',
+                            'Tangki': '45L',
+                            'Transmisi': 'CVT',
+                            'Sensor Pintar': 'ADAS',
+                            'Seat': 'Syntetic Leather',
+                            'Gerak Roda': 'Front Wheel Drive',
+                            'Velg': 'Machined alloy',
+                            'Lampu': 'LED',
+                            'Spion': 'Lipat + Atur',
+                            'MID': '7" TFT',
+                            'Head Unit': '10.25"',
+                            'Sunroof': 'Yes'
+                        }
+                    }
+                }
+            },
+            'mitra-ev': {
+                name: 'Wuling Mitra EV',
+                type: 'Mini Bus • Komersil',
+                variants: {
+                    'Mini Bus': {
+                        colors: {
+                            'Polar White': '#d7dbde',
+                            'Mountain Grey': '#bdc9d7'
+                        },
+                        specs: {
+                            'Battery capacity': '41.9 (Long Range) | 56.2 (Premium Range)',
+                            'Range': 'Up to 300 km (Long Range) | Up to 400 km (Premium Range)',
+                            'Port Charging': 'CCS2',
+                            'Fast DC Charging (30%-80%)': '± 30 menit',
+                            'Length × Width × Height (mm)': '5,010 × 1,800 × 1,975',
+                            'Gerak Roda': 'Rear Wheel Drive',
+                            'Kapasitas Penumpang': '8 Orang'
+                        }
+                    },
+                    'Blind Van': {
+                        colors: {
+                            'Polar White': '#d7dbde',
+                            'Mountain Grey': '#bdc9d7'
+                        },
+                        specs: {
+                            'Battery capacity': '41.9 (Long Range) | 56.2 (Premium Range)',
+                            'Range': 'Up to 300 km (Long Range) | Up to 400 km (Premium Range)',
+                            'Port Charging': 'CCS2',
+                            'Fast DC Charging (30%-80%)': '± 30 menit',
+                            'Length × Width × Height (mm)': '5,010 × 1,800 × 1,975',
+                            'Gerak Roda': 'Rear Wheel Drive',
+                            'Ruang Angkut': 'Up to 6.5 m³'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Car modal functions
+        let currentCar = {};
+        let selectedVariant = '';
+        let selectedColor = '';
+        
+        function openCarModal(name, type, engine, id) {
+            currentCar = carData[id];
+            document.getElementById('modalCarName').textContent = name;
+            document.getElementById('modalCarType').textContent = type;
+            
+            // Populate variants
+            const variantButtons = document.getElementById('variantButtons');
+            variantButtons.innerHTML = '';
+            const variants = Object.keys(currentCar.variants);
+            variants.forEach((variant, index) => {
+                const button = document.createElement('button');
+                button.textContent = variant;
+                button.className = index === 0 ? 'variant-btn bg-primary text-white px-4 py-2 rounded-lg text-sm' : 'variant-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm';
+                button.onclick = () => selectVariant(variant);
+                variantButtons.appendChild(button);
+            });
+            
+            // Select first variant by default
+            selectedVariant = variants[0];
+            updateColors();
+            updateSpecs();
+            
+            document.getElementById('carModal').classList.remove('hidden');
+        }
+        
+        function closeCarModal() {
+            document.getElementById('carModal').classList.add('hidden');
+        }
+        
+        function selectVariant(variant) {
+            selectedVariant = variant;
+            const buttons = document.querySelectorAll('.variant-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-primary', 'text-white');
+            
+            updateColors();
+            updateSpecs();
+        }
+        
+        function updateColors() {
+            const colorOptions = document.getElementById('colorOptions');
+            colorOptions.innerHTML = '';
+            const colors = currentCar.variants[selectedVariant].colors;
+            
+            Object.entries(colors).forEach(([colorName, colorCode], index) => {
+                const button = document.createElement('button');
+                button.className = index === 0 ? 'w-8 h-8 rounded-full border-2 border-primary ring-2 ring-primary transition-all' : 'w-8 h-8 rounded-full border-2 border-gray-300 hover:border-primary transition-all';
+                button.style.backgroundColor = colorCode;
+                button.title = colorName;
+                button.onclick = () => selectColor(colorName, colorCode, button);
+                colorOptions.appendChild(button);
+                
+                if (index === 0) {
+                    selectColor(colorName, colorCode, button);
+                }
+            });
+        }
+        
+        function selectColor(colorName, colorCode, buttonElement) {
+            selectedColor = colorName;
+            const colorButtons = document.querySelectorAll('#colorOptions button');
+            colorButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-primary', 'border-primary');
+                btn.classList.add('border-gray-300');
+            });
+            
+            if (buttonElement) {
+                buttonElement.classList.remove('border-gray-300');
+                buttonElement.classList.add('ring-2', 'ring-primary', 'border-primary');
+            }
+            
+            document.getElementById('selectedColorName').textContent = colorName;
+            
+            // Update car image color (simulate)
+            const carImage = document.getElementById('modalCarImage');
+            carImage.style.backgroundColor = colorCode;
+        }
+        
+        function updateSpecs() {
+            const specsContainer = document.getElementById('carSpecs');
+            const specs = currentCar.variants[selectedVariant].specs;
+            
+            let specsHTML = '';
+            Object.entries(specs).forEach(([key, value]) => {
+                specsHTML += `
+                    <div class="flex justify-between py-2 border-b border-gray-200 last:border-b-0">
+                        <span class="font-medium text-gray-700">${key}:</span>
+                        <span class="text-gray-600">${value}</span>
+                    </div>
+                `;
+            });
+            
+            specsContainer.innerHTML = specsHTML;
+        }
+        
+        function contactWhatsAppFromModal() {
+            const message = `Halo, saya tertarik dengan ${currentCar.name} varian ${selectedVariant} warna ${selectedColor}. Bisa info lebih lanjut tentang harga dan spesifikasinya?`;
+            openWhatsApp(message);
+        }
+
+        // Gallery toggle
+        function toggleGallery() {
+            const extraItems = document.querySelectorAll('.gallery-extra');
+            const button = document.getElementById('galleryToggle');
+            
+            extraItems.forEach(item => {
+                item.classList.toggle('hidden');
+            });
+            
+            if (button.textContent === 'Lihat Lebih Banyak') {
+                button.textContent = 'Lihat Lebih Sedikit';
+            } else {
+                button.textContent = 'Lihat Lebih Banyak';
+            }
+        }
+
+        // WhatsApp functions
+        function openWhatsApp(message) {
+            const phoneNumber = '6285178087988';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+        
+        function showBubble() {
+            document.getElementById('whatsappBubble').classList.remove('hidden');
+        }
+        
+        function hideBubble() {
+            setTimeout(() => {
+                document.getElementById('whatsappBubble').classList.add('hidden');
+            }, 300);
+        }
+
+        // Form submission
+        document.getElementById('simulationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                nama: document.getElementById('nama').value,
+                alamat: document.getElementById('alamat').value,
+                telepon: document.getElementById('telepon').value,
+                unit: document.getElementById('unit').value,
+                pembelian: document.getElementById('pembelian').value,
+                dp: document.getElementById('dp').value,
+                tenor: document.getElementById('tenor').value
+            };
+            
+            // Send email (simulated)
+            sendEmail(formData);
+            
+            // Send to WhatsApp
+            sendToWhatsApp(formData);
+        });
+        
+        function sendEmail(data) {
+            const subject = "Hei, Ada Prospek baru nih!";
+            const body = `
+Nama: ${data.nama}
+Alamat: ${data.alamat}
+Telepon: ${data.telepon}
+Unit: ${data.unit}
+Pembelian: ${data.pembelian}
+DP: ${data.dp} Juta
+Tenor: ${data.tenor} Tahun
+            `;
+            
+            const mailtoLink = `mailto:gakkebetulan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(mailtoLink, '_blank', 'noopener,noreferrer');
+        }
+        
+        function sendToWhatsApp(data) {
+            const message = `Halo, saya ${data.nama} ingin minta simulasi untuk:
+
+📋 Detail Simulasi:
+• Unit: ${data.unit}
+• Pembelian: ${data.pembelian}
+• DP: ${data.dp} Juta
+• Tenor: ${data.tenor} Tahun
+
+📞 Kontak: ${data.telepon}
+📍 Alamat: ${data.alamat}
+
+Mohon dibuatkan simulasinya ya. Terima kasih!`;
+            
+            openWhatsApp(message);
+        }
+
+        // Slide functions
+        function slideLeft() {
+            const slider = document.getElementById('carSlider');
+            slider.scrollBy({ left: -320, behavior: 'smooth' });
+        }
+        
+        function slideRight() {
+            const slider = document.getElementById('carSlider');
+            slider.scrollBy({ left: 320, behavior: 'smooth' });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98395a7e87e3c098',t:'MTc1ODYyMzI4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
