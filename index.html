@@ -1844,20 +1844,21 @@
 
         // Website Example Functions
         function viewWebsiteExample(type) {
-            let message = '';
             switch(type) {
                 case 'otomotif':
-                    message = 'Halo Irfan! Saya tertarik dengan contoh Web Otomotif. Bisa lihat demo lengkapnya dan konsultasi untuk website showroom mobil?';
+                    // Open the automotive website example in new tab
+                    window.open('./demo-web-otomotif-1/index.html', '_blank', 'noopener,noreferrer');
                     break;
                 case 'property':
-                    message = 'Halo Irfan! Saya tertarik dengan contoh Web Property. Bisa lihat demo lengkapnya dan konsultasi untuk website properti?';
+                    // Open the property website example in new tab
+                    window.open('./demo-web-property-1/index.html', '_blank', 'noopener,noreferrer');
                     break;
                 default:
-                    message = 'Halo Irfan! Saya ingin melihat contoh website yang sudah dibuat. Bisa konsultasi?';
+                    // Fallback to WhatsApp if no specific example
+                    const message = 'Halo Irfan! Saya ingin melihat contoh website yang sudah dibuat. Bisa konsultasi?';
+                    const encodedMessage = encodeURIComponent(message);
+                    window.open(`https://wa.me/6285178087988?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
             }
-            
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/6285178087988?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
         }
 
         // Close chat menu when clicking outside
@@ -1870,5 +1871,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98302caca65e9cc9',t:'MTc1ODUyNzAzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98397a65975945dc',t:'MTc1ODYyNDU5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
