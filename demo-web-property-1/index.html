@@ -1,9 +1,1190 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Website Properti</title>
-    </head>
-    <body>
-        <p>Moon Maap nih.. Lagi Coco Proses Pembuatan nya yaa...</p>
-    </body>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempatHidup.com - Property Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+
+        
+        .brush-text {
+            font-family: 'Brush Script MT', cursive;
+            transform: rotate(-2deg);
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal.active {
+            display: block;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .slide-container {
+            position: relative;
+            height: 50vh;
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .curved-overlay {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: white;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        .thumbnails {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+        
+        .thumbnail.active {
+            border-color: #0a5968;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .gallery-item:nth-child(3n) {
+            aspect-ratio: 16/9;
+        }
+        
+        .section {
+            display: none;
+            min-height: 100vh;
+            background: #0a5968;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section-1 {
+            background: linear-gradient(135deg, #0a5968 0%, #0d6b7a 100%);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card.hidden {
+            display: none;
+        }
+        
+        .category-btn {
+            transition: all 0.3s ease;
+            background: white;
+            border: 1px solid #afafaf;
+            border-radius: 20px;
+            color: #b5b5b5;
+            cursor: pointer;
+        }
+        
+        .category-btn.active {
+            background-color: #0a5968 !important;
+            color: white !important;
+            border-color: #0a5968 !important;
+        }
+        
+        .category-btn.active i {
+            color: white !important;
+        }
+        
+        .category-btn:hover {
+            background-color: #0a5968;
+            color: white;
+            border-color: #0a5968;
+        }
+        
+        .category-btn:hover i {
+            color: white;
+        }
+        
+        .btn-custom {
+            background: white;
+            border: 1px solid #afafaf;
+            color: #b5b5b5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom.active {
+            background: #0a5968;
+            color: #ffffff;
+            border-color: #0a5968;
+        }
+        
+        .btn-custom:hover {
+            background: #0a5968;
+            color: #ffffff;
+            border-color: #0a5968;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="px-4 py-3">
+            <h1 class="text-xl font-bold text-[#0a5968]">TempatHidup.com</h1>
+        </div>
+    </header>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+        <div class="flex justify-around py-2">
+            <button onclick="showSection(1)" class="nav-btn flex flex-col items-center py-2 px-4 text-[#0a5968]" data-section="1">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs mt-1">Home</span>
+            </button>
+            <button onclick="showSection(2)" class="nav-btn flex flex-col items-center py-2 px-4 text-gray-500" data-section="2">
+                <i class="fas fa-building text-lg"></i>
+                <span class="text-xs mt-1">Produk</span>
+            </button>
+            <button onclick="showSection(3)" class="nav-btn flex flex-col items-center py-2 px-4 text-gray-500" data-section="3">
+                <i class="fas fa-star text-lg"></i>
+                <span class="text-xs mt-1">Testimoni</span>
+            </button>
+            <button onclick="showSection(4)" class="nav-btn flex flex-col items-center py-2 px-4 text-gray-500" data-section="4">
+                <i class="fas fa-phone text-lg"></i>
+                <span class="text-xs mt-1">Kontak</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="section-1" class="section active relative min-h-screen overflow-hidden">
+        <!-- Full Screen Slideshow Background -->
+        <div class="absolute inset-0">
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGE1OTY4O3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA <c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZDZiN2E7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNncmFkMSkiLz4KICA8IS0tIEhvdXNlIFN0cnVjdHVyZSAtLT4KICA8cmVjdCB4PSI4MCIgeT0iMjAwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE4MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDwhLS0gUm9vZiAtLT4KICA8cG9seWdvbiBwb2ludHM9IjYwLDIwMCAyMDAsMTQwIDM0MCwyMDAiIGZpbGw9IiM4YjQ1MTMiIG9wYWNpdHk9IjAuOSIvPgogIDwhLS0gV2luZG93cyAtLT4KICA8cmVjdCB4PSIxMTAiIHk9IjIzMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNjM2NmYxIiBvcGFjaXR5PSIwLjciLz4KICA8cmVjdCB4PSIyNTAiIHk9IjIzMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNjM2NmYxIiBvcGFjaXR5PSIwLjciLz4KICA8IS0tIERvb3IgLS0+CiAgPHJlY3QgeD0iMTgwIiB5PSIzMjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzhiNDUxMyIgb3BhY2l0eT0iMC44Ii8+CiAgPGNpcmNsZSBjeD0iMjEwIiBjeT0iMzUwIiByPSIzIiBmaWxsPSIjZmZkNzAwIi8+Cjwvc3ZnPg==" alt="Property 1" class="hero-slide active">
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMzMzO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2NjY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNncmFkMikiLz4KICA8IS0tIE1vZGVybiBBcGFydG1lbnQgLS0+CiAgPHJlY3QgeD0iNjAiIHk9IjE2MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIyNDAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8IS0tIEJhbGNvbmllcyAtLT4KICA8cmVjdCB4PSI5MCIgeT0iMTkwIiB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIGZpbGw9IiM2MzY2ZjEiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjE1MCIgeT0iMTkwIiB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIGZpbGw9IiM2MzY2ZjEiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjI3MCIgeT0iMTkwIiB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIGZpbGw9IiM2MzY2ZjEiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjkwIiB5PSIyNjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzYzNjZmMSIgb3BhY2l0eT0iMC43Ii8+CiAgPHJlY3QgeD0iMTUwIiB5PSIyNjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzYzNjZmMSIgb3BhY2l0eT0iMC43Ii8+CiAgPHJlY3QgeD0iMjcwIiB5PSIyNjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzYzNjZmMSIgb3BhY2l0eT0iMC43Ii8+CiAgPCEtLSBFbnRyYW5jZSAtLT4KICA8cmVjdCB4PSIxODAiIHk9IjM1MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjOGI0NTEzIiBvcGFjaXR5PSIwLjgiLz4KPC9zdmc+" alt="Property 2" class="hero-slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDMiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMTY1MzNiO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyMjc3M2M7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNncmFkMykiLz4KICA8IS0tIFZpbGxhIENvbXBsZXggLS0+CiAgPHJlY3QgeD0iNDAiIHk9IjE4MCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC42Ii8+CiAgPHJlY3QgeD0iMTAwIiB5PSIyNDAiIHdpZHRoPSIyMDAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjMiLz4KICA8dGV4dCB4PSIyMDAiIHk9IjI3NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjQiIG9wYWNpdHk9IjAuOCI+VklMTEE8L3RleHQ+CiAgPCEtLSBHYXJkZW4gLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMzQwIiByPSIyMCIgZmlsbD0iIzIyYzU1ZSIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMzQwIiByPSIyMCIgZmlsbD0iIzIyYzU1ZSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==" alt="Property 3" class="hero-slide">
+        </div>
+        
+        <!-- Overlapping White Section with Curved Corner -->
+        <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-white" style="border-top-right-radius: 40px; z-index: 10;">
+            <!-- Content Container -->
+            <div class="flex flex-col justify-center items-center h-full px-8 text-center pt-8">
+                <!-- Main Heading -->
+                <h1 class="text-4xl font-bold mb-3 text-gray-800 leading-tight">
+                    Hai, Saya Irfan...
+                </h1>
+                
+                <!-- Subtitle -->
+                <p class="text-lg mb-8 text-gray-600 font-medium">
+                    Living Consultant kamu
+                </p>
+                
+                <!-- CTA Button -->
+                <button onclick="showSection(2)" class="btn-custom active px-8 py-3 text-base font-semibold rounded-full shadow-lg transform transition-transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>
+                    Yuk.. Mulai Tour
+                </button>
+                
+                <!-- Decorative Elements -->
+                <div class="mt-6 flex space-x-2">
+                    <div class="w-2 h-2 bg-[#0a5968] rounded-full opacity-30"></div>
+                    <div class="w-2 h-2 bg-[#0a5968] rounded-full opacity-60"></div>
+                    <div class="w-2 h-2 bg-[#0a5968] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Products -->
+    <section id="section-2" class="section bg-white">
+        <div class="pt-20 pb-20 px-4">
+            <!-- Sewa/Jual Toggle -->
+            <div class="flex gap-2 mb-6">
+                <button id="btn-sewa" onclick="toggleType('sewa')" class="btn-custom flex-1 py-2 px-4 font-medium">Sewa</button>
+                <button id="btn-jual" onclick="toggleType('jual')" class="btn-custom active flex-1 py-2 px-4 font-medium">Jual</button>
+            </div>
+
+            <!-- Categories -->
+            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                <div class="flex items-center category-btn active whitespace-nowrap px-3 py-2" onclick="filterByCategory('all')" data-category="all">
+                    <i class="fas fa-th text-sm mr-2"></i>
+                    <span class="text-sm">Semua</span>
+                </div>
+                <div class="flex items-center category-btn whitespace-nowrap px-3 py-2" onclick="filterByCategory('rumah')" data-category="rumah">
+                    <i class="fas fa-home text-sm mr-2"></i>
+                    <span class="text-sm">Rumah</span>
+                </div>
+                <div class="flex items-center category-btn whitespace-nowrap px-3 py-2" onclick="filterByCategory('kavling')" data-category="kavling">
+                    <i class="fas fa-map text-sm mr-2"></i>
+                    <span class="text-sm">Kavling</span>
+                </div>
+                <div class="flex items-center category-btn whitespace-nowrap px-3 py-2" onclick="filterByCategory('ruko')" data-category="ruko">
+                    <i class="fas fa-store text-sm mr-2"></i>
+                    <span class="text-sm">Ruko</span>
+                </div>
+                <div class="flex items-center category-btn whitespace-nowrap px-3 py-2" onclick="filterByCategory('apartment')" data-category="apartment">
+                    <i class="fas fa-building text-sm mr-2"></i>
+                    <span class="text-sm">Apartment</span>
+                </div>
+                <div class="flex items-center category-btn whitespace-nowrap px-3 py-2" onclick="filterByCategory('kios')" data-category="kios">
+                    <i class="fas fa-warehouse text-sm mr-2"></i>
+                    <span class="text-sm">Kios</span>
+                </div>
+            </div>
+
+            <!-- Custom Filter Toggle -->
+            <div class="mb-6">
+                <button onclick="toggleCustomFilter()" class="flex items-center justify-between w-full p-3 bg-gray-50 rounded-lg border">
+                    <span class="text-sm font-medium text-gray-700">Custom Filter</span>
+                    <i id="filter-icon" class="fas fa-chevron-down text-gray-500"></i>
+                </button>
+                
+                <!-- Hidden Filter Panel -->
+                <div id="custom-filter-panel" class="hidden bg-gray-50 p-4 rounded-b-lg border-t-0 border">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <select id="filter-kamar" onchange="applyFilters()" class="p-2 border rounded-lg">
+                            <option value="">Kamar Tidur</option>
+                            <option value="1">1 Kamar</option>
+                            <option value="2">2 Kamar</option>
+                            <option value="3">3 Kamar</option>
+                            <option value="4">4+ Kamar</option>
+                        </select>
+                        <select id="filter-kamarmandi" onchange="applyFilters()" class="p-2 border rounded-lg">
+                            <option value="">Kamar Mandi</option>
+                            <option value="1">1 Kamar Mandi</option>
+                            <option value="2">2 Kamar Mandi</option>
+                            <option value="3">3+ Kamar Mandi</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <select id="filter-min-price" onchange="applyFilters()" class="p-2 border rounded-lg">
+                            <option value="">Harga Min</option>
+                            <option value="100">100 Juta</option>
+                            <option value="500">500 Juta</option>
+                            <option value="1000">1 Miliar</option>
+                            <option value="2000">2 Miliar</option>
+                        </select>
+                        <select id="filter-max-price" onchange="applyFilters()" class="p-2 border rounded-lg">
+                            <option value="">Harga Max</option>
+                            <option value="500">500 Juta</option>
+                            <option value="1000">1 Miliar</option>
+                            <option value="2000">2 Miliar</option>
+                            <option value="5000">5+ Miliar</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <select id="filter-sort" onchange="applyFilters()" class="w-full p-2 border rounded-lg">
+                            <option value="">Sort By</option>
+                            <option value="price-low">Harga Terendah</option>
+                            <option value="price-high">Harga Tertinggi</option>
+                            <option value="newest">Terbaru</option>
+                            <option value="popular">Terpopuler</option>
+                        </select>
+                    </div>
+                    <button onclick="resetFilters()" class="w-full p-2 bg-gray-200 text-gray-700 rounded-lg text-sm">
+                        Reset Filter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product List -->
+            <div id="product-list" class="space-y-4">
+                <!-- Product Card 1 - Rumah Jual -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden" data-type="jual" data-category="rumah" data-kamar="3" data-kamarmandi="2" onclick="openModal('modal-1')">
+                    <div class="h-48 bg-gradient-to-r from-gray-300 to-gray-400 flex items-center justify-center">
+                        <svg viewBox="0 0 200 120" class="w-full h-full">
+                            <rect width="200" height="120" fill="#e5e7eb"/>
+                            <rect x="20" y="30" width="160" height="60" fill="#0a5968" opacity="0.8"/>
+                            <rect x="40" y="45" width="30" height="30" fill="white" opacity="0.9"/>
+                            <rect x="130" y="45" width="30" height="30" fill="white" opacity="0.9"/>
+                            <rect x="85" y="70" width="30" height="20" fill="#8b4513"/>
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-center">Rumah Minimalis Modern</h3>
+                        <p class="text-[#0a5968] font-bold mb-3">Rp 850 Juta</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-bed mr-2"></i>
+                                <span>3 Kamar</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bath mr-2"></i>
+                                <span>2 K. Mandi</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-home mr-2"></i>
+                                <span>75 m²</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map mr-2"></i>
+                                <span>120 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 - Rumah Jual -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden" data-type="jual" data-category="rumah" data-kamar="4" data-kamarmandi="3" onclick="openModal('modal-2')">
+                    <div class="h-48 bg-gradient-to-r from-blue-300 to-blue-400 flex items-center justify-center">
+                        <svg viewBox="0 0 200 120" class="w-full h-full">
+                            <rect width="200" height="120" fill="#dbeafe"/>
+                            <rect x="15" y="25" width="170" height="70" fill="#0a5968" opacity="0.8"/>
+                            <rect x="35" y="40" width="25" height="25" fill="white" opacity="0.9"/>
+                            <rect x="70" y="40" width="25" height="25" fill="white" opacity="0.9"/>
+                            <rect x="140" y="40" width="25" height="25" fill="white" opacity="0.9"/>
+                            <rect x="90" y="75" width="20" height="20" fill="#8b4513"/>
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-center">Rumah Cluster Premium</h3>
+                        <p class="text-[#0a5968] font-bold mb-3">Rp 1.2 Miliar</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-bed mr-2"></i>
+                                <span>4 Kamar</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bath mr-2"></i>
+                                <span>3 K. Mandi</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-home mr-2"></i>
+                                <span>120 m²</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map mr-2"></i>
+                                <span>200 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 - Kavling Jual -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden" data-type="jual" data-category="kavling" data-kamar="0" data-kamarmandi="0" onclick="openModal('modal-3')">
+                    <div class="h-48 bg-gradient-to-r from-green-300 to-green-400 flex items-center justify-center">
+                        <svg viewBox="0 0 200 120" class="w-full h-full">
+                            <rect width="200" height="120" fill="#dcfce7"/>
+                            <rect x="30" y="30" width="140" height="60" fill="none" stroke="#0a5968" stroke-width="3"/>
+                            <rect x="50" y="50" width="100" height="20" fill="#0a5968" opacity="0.3"/>
+                            <text x="100" y="65" text-anchor="middle" fill="#0a5968" font-size="12">KAVLING</text>
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-center">Kavling Siap Bangun</h3>
+                        <p class="text-[#0a5968] font-bold mb-3">Rp 450 Juta</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-map mr-2"></i>
+                                <span>200 m²</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-certificate mr-2"></i>
+                                <span>SHM</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-road mr-2"></i>
+                                <span>Jalan 6m</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2"></i>
+                                <span>Listrik</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 - Ruko Sewa -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hidden" data-type="sewa" data-category="ruko" data-kamar="0" data-kamarmandi="1" onclick="openModal('modal-4')">
+                    <div class="h-48 bg-gradient-to-r from-purple-300 to-purple-400 flex items-center justify-center">
+                        <svg viewBox="0 0 200 120" class="w-full h-full">
+                            <rect width="200" height="120" fill="#e9d5ff"/>
+                            <rect x="40" y="20" width="120" height="80" fill="#0a5968" opacity="0.8"/>
+                            <rect x="60" y="35" width="30" height="25" fill="white" opacity="0.9"/>
+                            <rect x="110" y="35" width="30" height="25" fill="white" opacity="0.9"/>
+                            <rect x="85" y="75" width="30" height="25" fill="#8b4513"/>
+                            <rect x="40" y="100" width="120" height="5" fill="#0a5968"/>
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-center">Ruko Strategis</h3>
+                        <p class="text-[#0a5968] font-bold mb-3">Rp 25 Juta/tahun</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-store mr-2"></i>
+                                <span>2 Lantai</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bath mr-2"></i>
+                                <span>1 K. Mandi</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-home mr-2"></i>
+                                <span>60 m²</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2"></i>
+                                <span>Parkir</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 - Rumah Sewa -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hidden" data-type="sewa" data-category="rumah" data-kamar="2" data-kamarmandi="1" onclick="openModal('modal-5')">
+                    <div class="h-48 bg-gradient-to-r from-yellow-300 to-yellow-400 flex items-center justify-center">
+                        <svg viewBox="0 0 200 120" class="w-full h-full">
+                            <rect width="200" height="120" fill="#fef3c7"/>
+                            <rect x="25" y="35" width="150" height="50" fill="#0a5968" opacity="0.8"/>
+                            <rect x="45" y="50" width="25" height="25" fill="white" opacity="0.9"/>
+                            <rect x="130" y="50" width="25" height="25" fill="white" opacity="0.9"/>
+                            <rect x="90" y="70" width="20" height="15" fill="#8b4513"/>
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-center">Rumah Sewa Nyaman</h3>
+                        <p class="text-[#0a5968] font-bold mb-3">Rp 15 Juta/tahun</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-bed mr-2"></i>
+                                <span>2 Kamar</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bath mr-2"></i>
+                                <span>1 K. Mandi</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-home mr-2"></i>
+                                <span>45 m²</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map mr-2"></i>
+                                <span>80 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Testimonials -->
+    <section id="section-3" class="section bg-white">
+        <div class="pt-20 pb-20 px-4">
+            <h2 class="text-4xl font-bold text-[#0a5968] text-center mb-8 brush-text">Kenapa Harus Irfan?</h2>
+            
+            <p class="text-center text-gray-600 mb-8">Karena Irfan memberikan pelayanan terbaik untuk kebutuhan properti Anda</p>
+
+            <!-- Service Cards -->
+            <div class="space-y-4 mb-8">
+                <div class="bg-[#0a5968] text-white p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-users text-2xl mr-4"></i>
+                        <h3 class="text-lg font-semibold">Pengalaman Terpercaya</h3>
+                    </div>
+                    <p>Sudah membantu lebih dari 10 orang jual/sewa rumah dengan hasil memuaskan</p>
+                </div>
+
+                <div class="bg-[#0a5968] text-white p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-bolt text-2xl mr-4"></i>
+                        <h3 class="text-lg font-semibold">Fast Response</h3>
+                    </div>
+                    <p>Respon cepat untuk setiap pertanyaan dan kebutuhan konsultasi properti</p>
+                </div>
+
+                <div class="bg-[#0a5968] text-white p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-heart text-2xl mr-4"></i>
+                        <h3 class="text-lg font-semibold">Konsumen Puas</h3>
+                    </div>
+                    <p>Tingkat kepuasan konsumen tinggi dengan pelayanan yang profesional</p>
+                </div>
+            </div>
+
+            <!-- Achievement -->
+            <div class="bg-gray-50 p-6 rounded-lg mb-8 text-center">
+                <h3 class="text-lg font-semibold mb-4">Achievement</h3>
+                <div class="w-32 h-32 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg mx-auto flex items-center justify-center">
+                    <i class="fas fa-trophy text-white text-4xl"></i>
+                </div>
+                <p class="mt-4 text-sm text-gray-600">Best Property Agent 2024</p>
+            </div>
+
+            <!-- Living Enhance -->
+            <h3 class="text-2xl font-bold text-[#0a5968] text-center mb-6">Living Enhance</h3>
+            
+            <!-- Gallery -->
+            <div class="gallery-grid mb-8">
+                <div class="gallery-item bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-handshake text-white text-2xl"></i>
+                </div>
+                <div class="gallery-item bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                    <i class="fas fa-key text-white text-2xl"></i>
+                </div>
+                <div class="gallery-item bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-home text-white text-2xl"></i>
+                </div>
+                <div class="gallery-item bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                    <i class="fas fa-smile text-white text-2xl"></i>
+                </div>
+                <div class="gallery-item bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                    <i class="fas fa-certificate text-white text-2xl"></i>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <p class="text-lg mb-4">Siap menemukan rumah impian Anda?</p>
+                <button onclick="showSection(4)" class="btn-custom active px-8 py-3 font-semibold">
+                    Hubungi Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact -->
+    <section id="section-4" class="section bg-white">
+        <div class="pt-24 pb-24 px-4">
+            <h2 class="text-2xl font-bold text-[#0a5968] text-center mb-8">Mau Survey Kapan?</h2>
+            
+            <!-- Survey Form -->
+            <form class="bg-gray-50 p-6 rounded-lg mb-8" onsubmit="handleSurveyForm(event)">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                    <input type="text" class="w-full p-3 border rounded-lg" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">No. WhatsApp</label>
+                    <input type="tel" class="w-full p-3 border rounded-lg" placeholder="08xxxxxxxxxx" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Survey</label>
+                    <input type="date" class="w-full p-3 border rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Waktu Survey</label>
+                    <select class="w-full p-3 border rounded-lg" required>
+                        <option value="">Pilih waktu</option>
+                        <option value="09:00">09:00 WIB</option>
+                        <option value="11:00">11:00 WIB</option>
+                        <option value="14:00">14:00 WIB</option>
+                        <option value="16:00">16:00 WIB</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full btn-custom active py-3 font-semibold">
+                    Jadwalkan Survey
+                </button>
+            </form>
+
+            <!-- Contact Person -->
+            <div class="bg-[#0a5968] text-white p-6 rounded-lg mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
+                        <svg viewBox="0 0 100 100" class="w-12 h-12">
+                            <circle cx="50" cy="35" r="15" fill="#0a5968"/>
+                            <path d="M20 80 Q50 60 80 80 L80 100 L20 100 Z" fill="#0a5968"/>
+                            <circle cx="45" cy="32" r="2" fill="white"/>
+                            <circle cx="55" cy="32" r="2" fill="white"/>
+                            <path d="M45 40 Q50 45 55 40" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Irfan</h3>
+                        <p class="text-sm opacity-90">Living Consultant</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone mr-3"></i>
+                        <a href="tel:085178087988" class="hover:underline">085178087988</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-3"></i>
+                        <a href="mailto:irfan@tempathidup.com" class="hover:underline">irfan@tempathidup.com</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        <a href="https://wa.me/6285178087988" target="_blank" rel="noopener noreferrer" class="hover:underline">WhatsApp</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-instagram mr-3"></i>
+                        <a href="https://instagram.com/irfan_property" target="_blank" rel="noopener noreferrer" class="hover:underline">@irfan_property</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center text-gray-500 text-sm">
+                <p>&copy; 2025 TempatHidup.com. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-2xl z-10">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
+
+    <!-- Product Modals -->
+    <div id="modal-1" class="modal">
+        <div class="slide-container">
+            <button onclick="closeModal('modal-1')" class="absolute top-4 left-4 z-10 w-10 h-10 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2U1ZTdlYiIvPgogIDxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIxMTAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjI1MCIgeT0iMTEwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjE4MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjOGI0NTEzIi8+Cjwvc3ZnPg==" alt="Rumah 1" class="slide active" onclick="openLightbox(this.src)">
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZlZjNjNyIvPgogIDxyZWN0IHg9IjQwIiB5PSI3MCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIxNjAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjgwIiB5PSIxMDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjE0MCIgeT0iMTAwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSIyNzAiIHk9IjEwMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMTgwIiB5PSIxODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzhiNDUxMyIvPgo8L3N2Zz4=" alt="Rumah 1 Interior" class="slide" onclick="openLightbox(this.src)">
+            <div class="curved-overlay"></div>
+        </div>
+        <div class="p-6 bg-white">
+            <!-- Thumbnails -->
+            <div class="thumbnails mb-4">
+                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2U1ZTdlYiIvPgogIDxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIxMTAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjI1MCIgeT0iMTEwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjE4MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjOGI0NTEzIi8+Cjwvc3ZnPg==" class="thumbnail active" onclick="changeSlide('modal-1', 0)">
+                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZlZjNjNyIvPgogIDxyZWN0IHg9IjQwIiB5PSI3MCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIxNjAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjgwIiB5PSIxMDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjE0MCIgeT0iMTAwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSIyNzAiIHk9IjEwMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMTgwIiB5PSIxODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzhiNDUxMyIvPgo8L3N2Zz4=" class="thumbnail" onclick="changeSlide('modal-1', 1)">
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2">Rumah Minimalis Modern</h3>
+            <p class="text-gray-600 mb-2">Cluster Green Valley</p>
+            <p class="text-2xl font-bold text-[#0a5968] mb-4">Mulai Rp 850 Juta</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-bed mr-3 text-[#0a5968]"></i>
+                    <span>3 Kamar Tidur</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-bath mr-3 text-[#0a5968]"></i>
+                    <span>2 Kamar Mandi</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home mr-3 text-[#0a5968]"></i>
+                    <span>LB: 75 m²</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-map mr-3 text-[#0a5968]"></i>
+                    <span>LT: 120 m²</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold mb-2">Deskripsi</h4>
+                <p class="text-gray-600">Rumah minimalis modern dengan desain contemporary. Dilengkapi dengan taman depan, carport, dan akses mudah ke fasilitas umum. Lokasi strategis dekat dengan sekolah, rumah sakit, dan pusat perbelanjaan.</p>
+            </div>
+            
+            <a href="https://wa.me/6285178087988?text=Halo%20Irfan,%20saya%20tertarik%20dengan%20Rumah%20Minimalis%20Modern%20di%20Cluster%20Green%20Valley" target="_blank" rel="noopener noreferrer" class="block w-full btn-custom active text-center py-3 font-semibold">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Tanya via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <div id="modal-2" class="modal">
+        <div class="slide-container">
+            <button onclick="closeModal('modal-2')" class="absolute top-4 left-4 z-10 w-10 h-10 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2RiZWFmZSIvPgogIDxyZWN0IHg9IjMwIiB5PSI2MCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjcwIiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMTQwIiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMjgwIiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMTgwIiB5PSIxODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzhiNDUxMyIvPgo8L3N2Zz4=" alt="Rumah 2" class="slide active" onclick="openLightbox(this.src)">
+            <div class="curved-overlay"></div>
+        </div>
+        <div class="p-6 bg-white">
+            <!-- Thumbnails -->
+            <div class="thumbnails mb-4">
+                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2RiZWFmZSIvPgogIDxyZWN0IHg9IjMwIiB5PSI2MCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjcwIiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMTQwIiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMjgwIiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ci8+CiAgPHJlY3QgeD0iMTgwIiB5PSIxODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzhiNDUxMyIvPgo8L3N2Zz4=" class="thumbnail active" onclick="changeSlide('modal-2', 0)">
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2">Rumah Cluster Premium</h3>
+            <p class="text-gray-600 mb-2">Cluster Royal Garden</p>
+            <p class="text-2xl font-bold text-[#0a5968] mb-4">Mulai Rp 1.2 Miliar</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-bed mr-3 text-[#0a5968]"></i>
+                    <span>4 Kamar Tidur</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-bath mr-3 text-[#0a5968]"></i>
+                    <span>3 Kamar Mandi</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home mr-3 text-[#0a5968]"></i>
+                    <span>LB: 120 m²</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-map mr-3 text-[#0a5968]"></i>
+                    <span>LT: 200 m²</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold mb-2">Deskripsi</h4>
+                <p class="text-gray-600">Rumah cluster premium dengan fasilitas lengkap. Dilengkapi dengan taman belakang yang luas, garasi 2 mobil, dan security 24 jam. Lokasi premium dengan akses mudah ke berbagai fasilitas kota.</p>
+            </div>
+            
+            <a href="https://wa.me/6285178087988?text=Halo%20Irfan,%20saya%20tertarik%20dengan%20Rumah%20Cluster%20Premium%20di%20Royal%20Garden" target="_blank" rel="noopener noreferrer" class="block w-full btn-custom active text-center py-3 font-semibold">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Tanya via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal 3 - Kavling -->
+    <div id="modal-3" class="modal">
+        <div class="slide-container">
+            <button onclick="closeModal('modal-3')" class="absolute top-4 left-4 z-10 w-10 h-10 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2RjZmNlNyIvPgogIDxyZWN0IHg9IjYwIiB5PSI2MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBhNTk2OCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgPHJlY3QgeD0iMTAwIiB5PSIxMDAiIHdpZHRoPSIyMDAiIGhlaWdodD0iNDAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuMyIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMGE1OTY4IiBmb250LXNpemU9IjI0Ij5LQVZMSU5HPC90ZXh0Pgo8L3N2Zz4=" alt="Kavling" class="slide active" onclick="openLightbox(this.src)">
+            <div class="curved-overlay"></div>
+        </div>
+        <div class="p-6 bg-white">
+            <!-- Thumbnails -->
+            <div class="thumbnails mb-4">
+                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2RjZmNlNyIvPgogIDxyZWN0IHg9IjYwIiB5PSI2MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBhNTk2OCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgPHJlY3QgeD0iMTAwIiB5PSIxMDAiIHdpZHRoPSIyMDAiIGhlaWdodD0iNDAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuMyIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMGE1OTY4IiBmb250LXNpemU9IjI0Ij5LQVZMSU5HPC90ZXh0Pgo8L3N2Zz4=" class="thumbnail active" onclick="changeSlide('modal-3', 0)">
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2">Kavling Siap Bangun</h3>
+            <p class="text-gray-600 mb-2">Perumahan Green Hills</p>
+            <p class="text-2xl font-bold text-[#0a5968] mb-4">Rp 450 Juta</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-map mr-3 text-[#0a5968]"></i>
+                    <span>LT: 200 m²</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-certificate mr-3 text-[#0a5968]"></i>
+                    <span>Sertifikat SHM</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-road mr-3 text-[#0a5968]"></i>
+                    <span>Jalan 6 meter</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-bolt mr-3 text-[#0a5968]"></i>
+                    <span>Listrik tersedia</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold mb-2">Deskripsi</h4>
+                <p class="text-gray-600">Kavling siap bangun di lokasi strategis dengan infrastruktur lengkap. Akses jalan lebar, listrik PLN tersedia, dan lingkungan yang berkembang pesat. Cocok untuk investasi jangka panjang.</p>
+            </div>
+            
+            <a href="https://wa.me/6285178087988?text=Halo%20Irfan,%20saya%20tertarik%20dengan%20Kavling%20Siap%20Bangun%20di%20Green%20Hills" target="_blank" rel="noopener noreferrer" class="block w-full btn-custom active text-center py-3 font-semibold">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Tanya via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal 4 - Ruko Sewa -->
+    <div id="modal-4" class="modal">
+        <div class="slide-container">
+            <button onclick="closeModal('modal-4')" class="absolute top-4 left-4 z-10 w-10 h-10 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2U5ZDVmZiIvPgogIDxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjEyMCIgeT0iODAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjIyMCIgeT0iODAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjE3MCIgeT0iMTgwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiM4YjQ1MTMiLz4KICA8cmVjdCB4PSI4MCIgeT0iMjQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMGE1OTY4Ii8+Cjwvc3ZnPg==" alt="Ruko" class="slide active" onclick="openLightbox(this.src)">
+            <div class="curved-overlay"></div>
+        </div>
+        <div class="p-6 bg-white">
+            <!-- Thumbnails -->
+            <div class="thumbnails mb-4">
+                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2U5ZDVmZiIvPgogIDxyZWN0IHg9IjgwIiB5PSI0MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjEyMCIgeT0iODAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjIyMCIgeT0iODAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjE3MCIgeT0iMTgwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiM4YjQ1MTMiLz4KICA8cmVjdCB4PSI4MCIgeT0iMjQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMGE1OTY4Ii8+Cjwvc3ZnPg==" class="thumbnail active" onclick="changeSlide('modal-4', 0)">
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2">Ruko Strategis</h3>
+            <p class="text-gray-600 mb-2">Jalan Raya Utama</p>
+            <p class="text-2xl font-bold text-[#0a5968] mb-4">Rp 25 Juta/tahun</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-store mr-3 text-[#0a5968]"></i>
+                    <span>2 Lantai</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-bath mr-3 text-[#0a5968]"></i>
+                    <span>1 Kamar Mandi</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home mr-3 text-[#0a5968]"></i>
+                    <span>LB: 60 m²</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-car mr-3 text-[#0a5968]"></i>
+                    <span>Area Parkir</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold mb-2">Deskripsi</h4>
+                <p class="text-gray-600">Ruko 2 lantai di lokasi strategis jalan raya utama. Cocok untuk berbagai jenis usaha dengan traffic tinggi. Dilengkapi area parkir dan akses mudah transportasi umum.</p>
+            </div>
+            
+            <a href="https://wa.me/6285178087988?text=Halo%20Irfan,%20saya%20tertarik%20dengan%20Ruko%20Strategis%20untuk%20sewa" target="_blank" rel="noopener noreferrer" class="block w-full btn-custom active text-center py-3 font-semibold">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Tanya via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal 5 - Rumah Sewa -->
+    <div id="modal-5" class="modal">
+        <div class="slide-container">
+            <button onclick="closeModal('modal-5')" class="absolute top-4 left-4 z-10 w-10 h-10 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZlZjNjNyIvPgogIDxyZWN0IHg9IjUwIiB5PSI5MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIxMjAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjI2MCIgeT0iMTIwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSIxODAiIHk9IjE4MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjOGI0NTEzIi8+Cjwvc3ZnPg==" alt="Rumah Sewa" class="slide active" onclick="openLightbox(this.src)">
+            <div class="curved-overlay"></div>
+        </div>
+        <div class="p-6 bg-white">
+            <!-- Thumbnails -->
+            <div class="thumbnails mb-4">
+                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZlZjNjNyIvPgogIDxyZWN0IHg9IjUwIiB5PSI5MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMwYTU5NjgiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIxMjAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDxyZWN0IHg9IjI2MCIgeT0iMTIwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSIxODAiIHk9IjE4MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjOGI0NTEzIi8+Cjwvc3ZnPg==" class="thumbnail active" onclick="changeSlide('modal-5', 0)">
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2">Rumah Sewa Nyaman</h3>
+            <p class="text-gray-600 mb-2">Perumahan Asri</p>
+            <p class="text-2xl font-bold text-[#0a5968] mb-4">Rp 15 Juta/tahun</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-bed mr-3 text-[#0a5968]"></i>
+                    <span>2 Kamar Tidur</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-bath mr-3 text-[#0a5968]"></i>
+                    <span>1 Kamar Mandi</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-home mr-3 text-[#0a5968]"></i>
+                    <span>LB: 45 m²</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-map mr-3 text-[#0a5968]"></i>
+                    <span>LT: 80 m²</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-semibold mb-2">Deskripsi</h4>
+                <p class="text-gray-600">Rumah sewa nyaman di lingkungan perumahan yang asri dan aman. Dilengkapi dengan taman kecil, carport, dan akses mudah ke fasilitas umum. Cocok untuk keluarga kecil.</p>
+            </div>
+            
+            <a href="https://wa.me/6285178087988?text=Halo%20Irfan,%20saya%20tertarik%20dengan%20Rumah%20Sewa%20Nyaman%20di%20Perumahan%20Asri" target="_blank" rel="noopener noreferrer" class="block w-full btn-custom active text-center py-3 font-semibold">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Tanya via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let currentType = 'jual';
+        let currentCategory = 'all';
+
+        // Navigation
+        function showSection(sectionNumber) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(`section-${sectionNumber}`).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-[#0a5968]');
+                btn.classList.add('text-gray-500');
+            });
+            
+            document.querySelector(`[data-section="${sectionNumber}"]`).classList.remove('text-gray-500');
+            document.querySelector(`[data-section="${sectionNumber}"]`).classList.add('text-[#0a5968]');
+        }
+
+        // Type toggle (Sewa/Jual)
+        function toggleType(type) {
+            currentType = type;
+            
+            // Update button styles
+            document.getElementById('btn-sewa').classList.remove('active');
+            document.getElementById('btn-jual').classList.remove('active');
+            
+            if (type === 'sewa') {
+                document.getElementById('btn-sewa').classList.add('active');
+            } else {
+                document.getElementById('btn-jual').classList.add('active');
+            }
+            
+            applyFilters();
+        }
+
+        // Category filter
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update category button styles
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+            
+            applyFilters();
+        }
+
+        // Toggle custom filter panel
+        function toggleCustomFilter() {
+            const panel = document.getElementById('custom-filter-panel');
+            const icon = document.getElementById('filter-icon');
+            
+            if (panel.classList.contains('hidden')) {
+                panel.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                panel.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // Reset all filters
+        function resetFilters() {
+            document.getElementById('filter-kamar').value = '';
+            document.getElementById('filter-kamarmandi').value = '';
+            document.getElementById('filter-min-price').value = '';
+            document.getElementById('filter-max-price').value = '';
+            document.getElementById('filter-sort').value = '';
+            applyFilters();
+        }
+
+        // Apply all filters
+        function applyFilters() {
+            const kamarFilter = document.getElementById('filter-kamar').value;
+            const kamarMandiFilter = document.getElementById('filter-kamarmandi').value;
+            const minPriceFilter = document.getElementById('filter-min-price').value;
+            const maxPriceFilter = document.getElementById('filter-max-price').value;
+            const sortFilter = document.getElementById('filter-sort').value;
+            const productCards = document.querySelectorAll('.product-card');
+            
+            let visibleCards = [];
+            
+            productCards.forEach(card => {
+                const cardType = card.getAttribute('data-type');
+                const cardCategory = card.getAttribute('data-category');
+                const cardKamar = card.getAttribute('data-kamar');
+                const cardKamarMandi = card.getAttribute('data-kamarmandi');
+                
+                let show = true;
+                
+                // Filter by type (sewa/jual)
+                if (cardType !== currentType) {
+                    show = false;
+                }
+                
+                // Filter by category
+                if (currentCategory !== 'all' && cardCategory !== currentCategory) {
+                    show = false;
+                }
+                
+                // Filter by kamar
+                if (kamarFilter && cardKamar !== '0') {
+                    if (kamarFilter === '4' && parseInt(cardKamar) < 4) {
+                        show = false;
+                    } else if (kamarFilter !== '4' && cardKamar !== kamarFilter) {
+                        show = false;
+                    }
+                }
+                
+                // Filter by kamar mandi
+                if (kamarMandiFilter && cardKamarMandi !== '0') {
+                    if (kamarMandiFilter === '3' && parseInt(cardKamarMandi) < 3) {
+                        show = false;
+                    } else if (kamarMandiFilter !== '3' && cardKamarMandi !== kamarMandiFilter) {
+                        show = false;
+                    }
+                }
+                
+                if (show) {
+                    card.classList.remove('hidden');
+                    visibleCards.push(card);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Apply sorting (basic implementation)
+            if (sortFilter && visibleCards.length > 0) {
+                const container = document.getElementById('product-list');
+                if (sortFilter === 'newest') {
+                    // Reverse order for newest
+                    visibleCards.reverse().forEach(card => {
+                        container.appendChild(card);
+                    });
+                }
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Slide functions
+        function changeSlide(modalId, slideIndex) {
+            const modal = document.getElementById(modalId);
+            const slides = modal.querySelectorAll('.slide');
+            const thumbnails = modal.querySelectorAll('.thumbnail');
+            
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            // Show selected slide
+            slides[slideIndex].classList.add('active');
+            thumbnails[slideIndex].classList.add('active');
+        }
+
+        // Lightbox functions
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Form handler
+        function handleSurveyForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const nama = event.target.querySelector('input[type="text"]').value;
+            const phone = event.target.querySelector('input[type="tel"]').value;
+            const tanggal = event.target.querySelector('input[type="date"]').value;
+            const waktu = event.target.querySelector('select').value;
+            
+            const message = `Halo Irfan, saya ${nama} ingin jadwalkan survey properti pada tanggal ${tanggal} jam ${waktu}. No. WhatsApp saya: ${phone}`;
+            const whatsappUrl = `https://wa.me/6285178087988?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Hero slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Initialize
+        window.addEventListener('load', function() {
+            // Initialize slideshow
+            setInterval(nextSlide, 4000);
+            
+            // Initialize filters
+            applyFilters();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9859ffa624a7aa11',t:'MTc1ODk2NTU5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
