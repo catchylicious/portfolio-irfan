@@ -211,6 +211,15 @@
             color: #ffffff;
             border-color: #0a5968;
         }
+        
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -244,7 +253,7 @@
     </nav>
 
     <!-- Section 1: Hero -->
-    <section id="section-1" class="section active relative min-h-screen overflow-hidden">
+    <section id="section-1" class="section active relative min-h-screen overflow-hidden pb-20">
         <!-- Full Screen Slideshow Background -->
         <div class="absolute inset-0">
             <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGE1OTY4O3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA <c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZDZiN2E7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNncmFkMSkiLz4KICA8IS0tIEhvdXNlIFN0cnVjdHVyZSAtLT4KICA8cmVjdCB4PSI4MCIgeT0iMjAwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE4MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSIvPgogIDwhLS0gUm9vZiAtLT4KICA8cG9seWdvbiBwb2ludHM9IjYwLDIwMCAyMDAsMTQwIDM0MCwyMDAiIGZpbGw9IiM4YjQ1MTMiIG9wYWNpdHk9IjAuOSIvPgogIDwhLS0gV2luZG93cyAtLT4KICA8cmVjdCB4PSIxMTAiIHk9IjIzMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNjM2NmYxIiBvcGFjaXR5PSIwLjciLz4KICA8cmVjdCB4PSIyNTAiIHk9IjIzMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNjM2NmYxIiBvcGFjaXR5PSIwLjciLz4KICA8IS0tIERvb3IgLS0+CiAgPHJlY3QgeD0iMTgwIiB5PSIzMjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzhiNDUxMyIgb3BhY2l0eT0iMC44Ii8+CiAgPGNpcmNsZSBjeD0iMjEwIiBjeT0iMzUwIiByPSIzIiBmaWxsPSIjZmZkNzAwIi8+Cjwvc3ZnPg==" alt="Property 1" class="hero-slide active">
@@ -273,7 +282,7 @@
                 </button>
                 
                 <!-- Decorative Elements -->
-                <div class="mt-6 flex space-x-2">
+                <div class="mt-6 flex space-x-2 mb-4">
                     <div class="w-2 h-2 bg-[#0a5968] rounded-full opacity-30"></div>
                     <div class="w-2 h-2 bg-[#0a5968] rounded-full opacity-60"></div>
                     <div class="w-2 h-2 bg-[#0a5968] rounded-full"></div>
@@ -284,7 +293,8 @@
 
     <!-- Section 2: Products -->
     <section id="section-2" class="section bg-white">
-        <div class="pt-20 pb-20 px-4">
+        <div class="pt-20 pb-24 px-4">
+            <h2 class="text-2xl font-bold text-[#0a5968] text-center mb-6">Silahkan Pilih Produk</h2>
             <!-- Sewa/Jual Toggle -->
             <div class="flex gap-2 mb-6">
                 <button id="btn-sewa" onclick="toggleType('sewa')" class="btn-custom flex-1 py-2 px-4 font-medium">Sewa</button>
@@ -292,7 +302,7 @@
             </div>
 
             <!-- Categories -->
-            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+            <div class="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
                 <div class="flex items-center category-btn active whitespace-nowrap px-3 py-2" onclick="filterByCategory('all')" data-category="all">
                     <i class="fas fa-th text-sm mr-2"></i>
                     <span class="text-sm">Semua</span>
@@ -557,7 +567,7 @@
 
     <!-- Section 3: Testimonials -->
     <section id="section-3" class="section bg-white">
-        <div class="pt-20 pb-20 px-4">
+        <div class="pt-20 pb-24 px-4">
             <h2 class="text-4xl font-bold text-[#0a5968] text-center mb-8 brush-text">Kenapa Harus Irfan?</h2>
             
             <p class="text-center text-gray-600 mb-8">Karena Irfan memberikan pelayanan terbaik untuk kebutuhan properti Anda</p>
@@ -632,7 +642,7 @@
 
     <!-- Section 4: Contact -->
     <section id="section-4" class="section bg-white">
-        <div class="pt-24 pb-24 px-4">
+        <div class="pt-20 pb-24 px-4">
             <h2 class="text-2xl font-bold text-[#0a5968] text-center mb-8">Mau Survey Kapan?</h2>
             
             <!-- Survey Form -->
@@ -1186,5 +1196,5 @@
             applyFilters();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9859ffa624a7aa11',t:'MTc1ODk2NTU5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985a101fe2721564',t:'MTc1ODk2NjI3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
